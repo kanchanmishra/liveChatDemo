@@ -1,0 +1,16 @@
+﻿<Properties StartupConfiguration="{5ECB8782-993F-4062-B587-724426FB1BEC}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ChatBinding/Structs.cs">
+    <Files>
+      <File FileName="ChatBinding/ApiDefinition.cs" Line="27" Column="25" />
+      <File FileName="ChatBinding/LPChatMessaging.cs" Line="19" Column="1" />
+      <File FileName="ChatBinding/Structs.cs" Line="150" Column="6" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.LPChat PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.D035B5A6-987C-4B02-A099-DFBA5C73A8EE" automaticSigning="False" />
+</Properties>
