@@ -2,8 +2,6 @@
 
 namespace LivePersonChat
 {
-
-    
     public enum CheckmarksState
     {
         SentOnly = 1,
@@ -11,10 +9,6 @@ namespace LivePersonChat
         All = 3
     }
 
-   
-    
-  
-    
     public enum LPAccountEnviroment 
     {
         Production = 0,
@@ -22,7 +16,7 @@ namespace LivePersonChat
         Qa = 2
     }
 
-    
+
     public enum LPConversationCloseReason 
     {
         Agent = 0,
@@ -133,7 +127,6 @@ namespace LivePersonChat
         Off = 5
     }
 
-    
     public enum SocketType 
     {
         Consumer = 0,

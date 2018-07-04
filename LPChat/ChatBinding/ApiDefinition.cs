@@ -19,9 +19,11 @@ using OpenGLES;
 using Security;
 using UIKit;
 using WebKit;
+using System.Collections.Generic;
 
 namespace LivePersonChat
 {
+
 
     // @interface GeneralResponse : NSObject
     [BaseType(typeof(NSObject))]
@@ -66,14 +68,14 @@ namespace LivePersonChat
     }
 
     // @protocol ConversationParamProtocol
-    [BaseType(typeof(ConversationParamProtocol))]
+
     [Protocol, Model]
     interface ConversationParamProtocol
     {
         // @required -(NSArray<LPConversationEntity *> * _Nullable)getConversations __attribute__((warn_unused_result));
         [Abstract]
         [NullAllowed, Export("getConversations")]
-        
+
         LPConversationEntity[] Conversations { get; }
 
         // @required -(NSArray<LPConversationEntity *> * _Nullable)getConversations:(NSPredicate * _Nullable)predicate __attribute__((warn_unused_result));
@@ -85,19 +87,19 @@ namespace LivePersonChat
         // @required -(NSArray<LPConversationEntity *> * _Nullable)getClosedConversations __attribute__((warn_unused_result));
         [Abstract]
         [NullAllowed, Export("getClosedConversations")]
-        
+
         LPConversationEntity[] ClosedConversations { get; }
 
         // @required -(LPConversationEntity * _Nullable)getActiveConversation __attribute__((warn_unused_result));
         [Abstract]
         [NullAllowed, Export("getActiveConversation")]
-        
+
         LPConversationEntity ActiveConversation { get; }
 
         // @required -(LPConversationEntity * _Nullable)getOpenConversation __attribute__((warn_unused_result));
         [Abstract]
         [NullAllowed, Export("getOpenConversation")]
-        
+
         LPConversationEntity OpenConversation { get; }
 
         // @required -(NSArray<LPConversationEntity *> * _Nullable)getLatestClosedConversation:(NSInteger)conversationsCount __attribute__((warn_unused_result));
@@ -109,13 +111,13 @@ namespace LivePersonChat
         // @required -(LPConversationEntity * _Nonnull)createNewConversation __attribute__((warn_unused_result));
         [Abstract]
         [Export("createNewConversation")]
-        
+
         LPConversationEntity CreateNewConversation { get; }
 
         // @required -(NSString * _Nonnull)getQueryType __attribute__((warn_unused_result));
         [Abstract]
         [Export("getQueryType")]
-        
+
         string QueryType { get; }
 
         // @required -(BOOL)isConversationRelatedToQuery:(LPConversationEntity * _Nonnull)conversation __attribute__((warn_unused_result));
@@ -126,19 +128,19 @@ namespace LivePersonChat
         // @required -(NSString * _Nonnull)getBrandID __attribute__((warn_unused_result));
         [Abstract]
         [Export("getBrandID")]
-        
+
         string BrandID { get; }
 
         // @required -(NSString * _Nonnull)getQueryUID __attribute__((warn_unused_result));
         [Abstract]
         [Export("getQueryUID")]
-        
+
         string QueryUID { get; }
 
         // @required -(NSDictionary<NSString *,id> * _Nonnull)getQueryProperties __attribute__((warn_unused_result));
         [Abstract]
         [Export("getQueryProperties")]
-        
+
         NSDictionary<NSString, NSObject> QueryProperties { get; }
     }
 
@@ -154,7 +156,7 @@ namespace LivePersonChat
 
         // -(NSArray<LPConversationEntity *> * _Nullable)getConversations __attribute__((warn_unused_result));
         [NullAllowed, Export("getConversations")]
-        
+
         LPConversationEntity[] Conversations { get; }
 
         // -(NSArray<LPConversationEntity *> * _Nullable)getConversations:(NSPredicate * _Nullable)predicate __attribute__((warn_unused_result));
@@ -164,17 +166,17 @@ namespace LivePersonChat
 
         // -(LPConversationEntity * _Nullable)getActiveConversation __attribute__((warn_unused_result));
         [NullAllowed, Export("getActiveConversation")]
-        
+
         LPConversationEntity ActiveConversation { get; }
 
         // -(NSArray<LPConversationEntity *> * _Nullable)getClosedConversations __attribute__((warn_unused_result));
         [NullAllowed, Export("getClosedConversations")]
-        
+
         LPConversationEntity[] ClosedConversations { get; }
 
         // -(LPConversationEntity * _Nullable)getOpenConversation __attribute__((warn_unused_result));
         [NullAllowed, Export("getOpenConversation")]
-        
+
         LPConversationEntity OpenConversation { get; }
 
         // -(NSArray<LPConversationEntity *> * _Nullable)getLatestClosedConversation:(NSInteger)conversationsCount __attribute__((warn_unused_result));
@@ -184,12 +186,12 @@ namespace LivePersonChat
 
         // -(LPConversationEntity * _Nonnull)createNewConversation __attribute__((warn_unused_result));
         [Export("createNewConversation")]
-        
+
         LPConversationEntity CreateNewConversation { get; }
 
         // -(NSString * _Nonnull)getQueryType __attribute__((warn_unused_result));
         [Export("getQueryType")]
-        
+
         string QueryType { get; }
 
         // -(BOOL)isConversationRelatedToQuery:(LPConversationEntity * _Nonnull)conversation __attribute__((warn_unused_result));
@@ -198,22 +200,22 @@ namespace LivePersonChat
 
         // -(NSString * _Nonnull)getBrandID __attribute__((warn_unused_result));
         [Export("getBrandID")]
-        
+
         string BrandID { get; }
 
         // -(NSString * _Nonnull)getQueryUID __attribute__((warn_unused_result));
         [Export("getQueryUID")]
-        
+
         string QueryUID { get; }
 
         // -(LPCampaignInfo * _Nullable)getCampaignInfo __attribute__((warn_unused_result));
         [NullAllowed, Export("getCampaignInfo")]
-        
+
         LPCampaignInfo CampaignInfo { get; }
 
         // -(NSDictionary<NSString *,id> * _Nonnull)getQueryProperties __attribute__((warn_unused_result));
         [Export("getQueryProperties")]
-        
+
         NSDictionary<NSString, NSObject> QueryProperties { get; }
 
         // +(instancetype _Nonnull)new __attribute__((deprecated("-init is unavailable")));
@@ -252,12 +254,12 @@ namespace LivePersonChat
 
         // -(NSArray<LPConversationEntity *> * _Nullable)getConversations __attribute__((warn_unused_result));
         [NullAllowed, Export("getConversations")]
-        
+
         LPConversationEntity[] Conversations { get; }
 
         // -(LPConversationEntity * _Nullable)getActiveConversation __attribute__((warn_unused_result));
         [NullAllowed, Export("getActiveConversation")]
-        
+
         LPConversationEntity ActiveConversation { get; }
 
         // -(NSArray<LPConversationEntity *> * _Nullable)getConversations:(NSPredicate * _Nullable)predicate __attribute__((warn_unused_result));
@@ -267,12 +269,12 @@ namespace LivePersonChat
 
         // -(LPConversationEntity * _Nonnull)createNewConversation __attribute__((warn_unused_result));
         [Export("createNewConversation")]
-        
+
         LPConversationEntity CreateNewConversation { get; }
 
         // -(NSString * _Nonnull)getQueryType __attribute__((warn_unused_result));
         [Export("getQueryType")]
-        
+
         string QueryType { get; }
 
         // -(BOOL)isConversationRelatedToQuery:(LPConversationEntity * _Nonnull)conversation __attribute__((warn_unused_result));
@@ -281,7 +283,7 @@ namespace LivePersonChat
 
         // -(NSString * _Nonnull)getQueryUID __attribute__((warn_unused_result));
         [Export("getQueryUID")]
-        
+
         string QueryUID { get; }
     }
 
@@ -385,7 +387,7 @@ namespace LivePersonChat
     }
 
     // @protocol GeneralManagerProtocol
-    [BaseType(typeof(GeneralManagerProtocol))]
+    //[BaseType(typeof(GeneralManagerProtocol))]
     [Protocol, Model]
     interface GeneralManagerProtocol
     {
@@ -445,12 +447,12 @@ namespace LivePersonChat
         IntPtr Constructor(NSDictionary<NSString, NSObject> jsonDict);
 
         // -(instancetype _Nonnull)initWithAcCdnDictionary:(NSDictionary<NSString *,id> * _Nonnull)acCdnDictionary __attribute__((objc_designated_initializer));
-       /* [Export("initWithAcCdnDictionary:")]
-        [DesignatedInitializer]
-        IntPtr Constructor(NSDictionary<NSString, NSObject> acCdnDictionary); */
+        /* [Export("initWithAcCdnDictionary:")]
+         [DesignatedInitializer]
+         IntPtr Constructor(NSDictionary<NSString, NSObject> acCdnDictionary); */
     }
 
-   
+
     // @interface LPAccountEntity : NSManagedObject
     [BaseType(typeof(NSManagedObject))]
     interface LPAccountEntity
@@ -570,12 +572,12 @@ namespace LivePersonChat
     {
         // -(LPConversationEntity * _Nullable)getCreatedConversation __attribute__((warn_unused_result));
         [NullAllowed, Export("getCreatedConversation")]
-        
+
         LPConversationEntity CreatedConversation { get; }
 
         // -(NSArray<LPConversationEntity *> * _Nonnull)getConversations __attribute__((warn_unused_result));
         [Export("getConversations")]
-        
+
         LPConversationEntity[] Conversations { get; }
 
         // -(NSArray<LPConversationEntity *> * _Nonnull)getConversations:(NSPredicate * _Nullable)predicate __attribute__((warn_unused_result));
@@ -584,12 +586,12 @@ namespace LivePersonChat
 
         // -(NSDate * _Nullable)getLastMessageTimeStamp __attribute__((warn_unused_result));
         [NullAllowed, Export("getLastMessageTimeStamp")]
-        
+
         NSDate LastMessageTimeStamp { get; }
 
         // -(BOOL)isAuthenticated __attribute__((warn_unused_result));
         [Export("isAuthenticated")]
-        
+
         bool IsAuthenticated { get; }
     }
 
@@ -1711,7 +1713,7 @@ namespace LivePersonChat
 
         // -(BOOL)isActivityInIdle __attribute__((diagnose_if(0x7fcad7921358, "Swift method 'LPConversationEntity.isActivityInIdle()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning"))) __attribute__((warn_unused_result));
         [Export("isActivityInIdle")]
-        
+
         bool IsActivityInIdle { get; }
 
         // -(NSArray<LPMessageEntity *> * _Nonnull)getMessagesPage:(NSInteger)from pageSize:(NSInteger)pageSize __attribute__((diagnose_if(0x7fcad79217c0, "Swift method 'LPConversationEntity.getMessagesPage(_:pageSize:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning"))) __attribute__((warn_unused_result));
@@ -1720,7 +1722,7 @@ namespace LivePersonChat
 
         // -(BOOL)isCurrentlyUrgent __attribute__((diagnose_if(0x7fcad7921aa8, "Swift method 'LPConversationEntity.isCurrentlyUrgent()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning"))) __attribute__((warn_unused_result));
         [Export("isCurrentlyUrgent")]
-        
+
         bool IsCurrentlyUrgent { get; }
 
         // @property (readonly, nonatomic) BOOL isResolvedAutomatically __attribute__((diagnose_if(0x7fcad7921d78, "Swift property 'LPConversationEntity.isResolvedAutomatically' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
@@ -1966,7 +1968,7 @@ namespace LivePersonChat
     {
         // -(UIImage * _Nullable)getThumbnailImage __attribute__((warn_unused_result));
         [NullAllowed, Export("getThumbnailImage")]
-        
+
         UIImage ThumbnailImage { get; }
 
         // @property (readonly, nonatomic) BOOL isTransferring;
@@ -2056,7 +2058,7 @@ namespace LivePersonChat
         // +(BOOL)initializeInfra __attribute__((warn_unused_result));
         [Static]
         [Export("initializeInfra")]
-        
+
         bool InitializeInfra { get; }
 
         // +(id<ConversationParamProtocol> _Nonnull)getConversationBrandQuery:(NSString * _Nonnull)brandID campaignInfo:(LPCampaignInfo * _Nullable)campaignInfo __attribute__((warn_unused_result));
@@ -2108,7 +2110,7 @@ namespace LivePersonChat
         // +(NSManagedObjectContext * _Nullable)getContext __attribute__((warn_unused_result));
         [Static]
         [NullAllowed, Export("getContext")]
-        
+
         NSManagedObjectContext Context { get; }
 
         // +(void)saveDataWithGetContextFrom:(NSManagedObject * _Nullable)obj;
@@ -2227,7 +2229,7 @@ namespace LivePersonChat
         // +(LPConversationEntity * _Nullable)getOpenConveration __attribute__((warn_unused_result));
         [Static]
         [NullAllowed, Export("getOpenConveration")]
-        
+
         LPConversationEntity OpenConveration { get; }
 
         // +(NSArray<NSString *> * _Nullable)getConsumerIdsRelatedToMessagesThatContainsWithText:(NSString * _Nonnull)text __attribute__((warn_unused_result));
@@ -2301,7 +2303,7 @@ namespace LivePersonChat
         // +(NSString * _Nonnull)getAppIdentifier __attribute__((warn_unused_result));
         [Static]
         [Export("getAppIdentifier")]
-        
+
         string AppIdentifier { get; }
 
         // +(void)registerPusher:(LPBrandEntity * _Nonnull)brand;
@@ -2338,7 +2340,7 @@ namespace LivePersonChat
         // +(BOOL)removeAllKeychainObjects __attribute__((warn_unused_result));
         [Static]
         [Export("removeAllKeychainObjects")]
-        
+
         bool RemoveAllKeychainObjects { get; }
 
         // +(NSArray<LPMessageEntity *> * _Nullable)getMessagesOfLatestConversation:(id<ConversationParamProtocol> _Nonnull)query __attribute__((warn_unused_result));
@@ -2401,7 +2403,7 @@ namespace LivePersonChat
         // +(void)getMessageBoardsWithUrl:(NSURL * _Nonnull)url completion:(void (^ _Nonnull)(NSArray<LPCustomBoardEntity *> * _Nonnull))completion failure:(void (^ _Nonnull)(NSError * _Nullable))failure;
         [Static]
         [Export("getMessageBoardsWithUrl:completion:failure:")]
-        void GetMessageBoardsWithUrl(NSUrl url, Action<NSArray<LPCustomBoardEntity>> completion, Action<NSError> failure);
+        void GetMessageBoardsWithUrl(NSUrl url, Action<NSArray> completion, Action<NSError> failure);
 
         // +(void)deleteAllPreviewImagesFromDiskWithCompletion:(void (^ _Nonnull)(void))completion failure:(void (^ _Nonnull)(NSError * _Nonnull))failure;
         [Static]
@@ -2419,10 +2421,13 @@ namespace LivePersonChat
         [Export("getUserIDFromJWT:")]
         [return: NullAllowed]
         string GetUserIDFromJWT(string jwtToken);
+
+
+
     }
 
     // @interface LPLinkPreviewEntity : NSManagedObject
-    [BaseType(typeof(NSManagedObject))]
+    [BaseType(typeof(NSObject))]
     interface LPLinkPreviewEntity
     {
         // @property (copy, nonatomic) NSString * _Nonnull uid;
@@ -2478,9 +2483,9 @@ namespace LivePersonChat
         string Description { get; }
 
         // -(instancetype _Nonnull)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context __attribute__((objc_designated_initializer));
-        [Export("initWithEntity:insertIntoManagedObjectContext:")]
-        [DesignatedInitializer]
-        IntPtr Constructor(NSEntityDescription entity, [NullAllowed] NSManagedObjectContext context);
+        //[Export("initWithEntity:insertIntoManagedObjectContext:")]
+        //[DesignatedInitializer]
+        //IntPtr Constructor(NSEntityDescription entity, [NullAllowed] NSManagedObjectContext context);
     }
 
     // @interface LPInfra_Swift_1549 (LPLinkPreviewEntity)
@@ -2498,7 +2503,7 @@ namespace LivePersonChat
 
         // -(UIImage * _Nullable)getImageFromCache __attribute__((warn_unused_result));
         [NullAllowed, Export("getImageFromCache")]
-        
+
         UIImage ImageFromCache { get; }
     }
 
@@ -2595,7 +2600,7 @@ namespace LivePersonChat
 
         // @property (copy, nonatomic) void (^ _Nullable)(NSArray<LPCustomBoardEntity *> * _Nonnull) boardsBuildCompleted __attribute__((diagnose_if(0x7fcad793e6f8, "Swift property 'LPMessageEntity.boardsBuildCompleted' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
         [NullAllowed, Export("boardsBuildCompleted", ArgumentSemantic.Copy)]
-        Action<NSArray<LPCustomBoardEntity>> BoardsBuildCompleted { get; set; }
+        Action<NSArray> BoardsBuildCompleted { get; set; }
 
         // @property (copy, nonatomic) void (^ _Nullable)(NSError * _Nonnull) boardsBuildFailed __attribute__((diagnose_if(0x7fcad793ea80, "Swift property 'LPMessageEntity.boardsBuildFailed' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
         [NullAllowed, Export("boardsBuildFailed", ArgumentSemantic.Copy)]
@@ -2659,7 +2664,7 @@ namespace LivePersonChat
 
         // -(void)getBoardsWithCompletion:(void (^ _Nonnull)(NSArray<LPCustomBoardEntity *> * _Nonnull))completion failure:(void (^ _Nonnull)(NSError * _Nonnull))failure __attribute__((diagnose_if(0x7fcad794f550, "Swift method 'LPMessageEntity.getBoards(completion:failure:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
         [Export("getBoardsWithCompletion:failure:")]
-        void GetBoardsWithCompletion(Action<NSArray<LPCustomBoardEntity>> completion, Action<NSError> failure);
+        void GetBoardsWithCompletion(Action<NSArray> completion, Action<NSError> failure);
     }
 
     // @interface LPOperation : NSOperation
@@ -2719,13 +2724,13 @@ namespace LivePersonChat
         // +(NSBundle * _Nullable)getBundle __attribute__((warn_unused_result));
         [Static]
         [NullAllowed, Export("getBundle")]
-        
+
         NSBundle Bundle { get; }
 
         // +(NSString * _Nullable)getSDKVersion __attribute__((warn_unused_result));
         [Static]
         [NullAllowed, Export("getSDKVersion")]
-        
+
         string SDKVersion { get; }
 
         // +(void)isVersionApplicableWithBrandID:(NSString * _Nonnull)brandID configurationKey:(NSString * _Nullable)configurationKey useCacheIfExists:(BOOL)useCacheIfExists completion:(void (^ _Nonnull)(BOOL, BOOL))completion failure:(void (^ _Nonnull)(NSError * _Nonnull))failure;
@@ -2986,19 +2991,19 @@ namespace LivePersonChat
         // +(NSDictionary<NSString *,NSString *> * _Nonnull)getAllSupportedLanguages __attribute__((warn_unused_result));
         [Static]
         [Export("getAllSupportedLanguages")]
-        
+
         NSDictionary<NSString, NSString> AllSupportedLanguages { get; }
 
         // +(NSString * _Nonnull)getFormattedLocale __attribute__((warn_unused_result));
         [Static]
         [Export("getFormattedLocale")]
-        
+
         string FormattedLocale { get; }
 
         // +(NSString * _Nonnull)sdkLanguageFromLocalePreferredLanguage __attribute__((warn_unused_result));
         [Static]
         [Export("sdkLanguageFromLocalePreferredLanguage")]
-        
+
         string SdkLanguageFromLocalePreferredLanguage { get; }
     }
 
@@ -3103,7 +3108,7 @@ namespace LivePersonChat
     {
         // -(NSDictionary<NSString *,id> * _Nonnull)serializeToDictionary __attribute__((diagnose_if(0x7fcad795ed68, "Swift method 'NSObject.serializeToDictionary()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning"))) __attribute__((warn_unused_result));
         [Export("serializeToDictionary")]
-        
+
         NSDictionary<NSString, NSObject> SerializeToDictionary { get; }
     }
 
@@ -3115,7 +3120,7 @@ namespace LivePersonChat
         // +(NSOperationQueue * _Nonnull)sharedOperationQueue __attribute__((diagnose_if(0x7fcad795f170, "Swift method 'OperationQueue.sharedOperationQueue()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning"))) __attribute__((warn_unused_result));
         [Static]
         [Export("sharedOperationQueue")]
-        
+
         NSOperationQueue SharedOperationQueue { get; }
     }
 
@@ -3706,7 +3711,7 @@ namespace LivePersonChat
 
         // -(void)awakeFromNib __attribute__((objc_requires_super));
         [Export("awakeFromNib")]
-        [RequiresSuper]
+
         void AwakeFromNib();
 
         // -(void)changeTextWithText:(NSString * _Nonnull)text __attribute__((diagnose_if(0x7fcad797ef68, "Swift method 'Toast.changeText(text:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
@@ -3832,7 +3837,7 @@ namespace LivePersonChat
     {
         // -(UIFont * _Nullable)getNavigationBarTitleFont __attribute__((diagnose_if(0x7fcad7983c20, "Swift method 'UINavigationController.getNavigationBarTitleFont()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning"))) __attribute__((warn_unused_result));
         [NullAllowed, Export("getNavigationBarTitleFont")]
-        
+
         UIFont NavigationBarTitleFont { get; }
     }
 
@@ -3843,7 +3848,7 @@ namespace LivePersonChat
     {
         // -(UIViewController * _Nullable)topRootPresentedViewController __attribute__((diagnose_if(0x7fcad7984068, "Swift method 'UIWindow.topRootPresentedViewController()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning"))) __attribute__((warn_unused_result));
         [NullAllowed, Export("topRootPresentedViewController")]
-        
+
         UIViewController TopRootPresentedViewController { get; }
 
         // -(UIViewController * _Nullable)topViewControllerWithBase:(UIViewController * _Nullable)base __attribute__((diagnose_if(0x7fcad7984420, "Swift method 'UIWindow.topViewController(base:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning"))) __attribute__((warn_unused_result));
@@ -3979,7 +3984,7 @@ namespace LivePersonChat
         // +(void)getConsumerMessagesForConversationWithRequest:(EngagementHistoryRequest * _Nonnull)request completion:(void (^ _Nonnull)(NSArray<LPMessageEntity *> * _Nonnull))completion failure:(void (^ _Nonnull)(NSError * _Nonnull))failure __attribute__((diagnose_if(0x7fcad798ecf8, "Swift method 'EngagementHistoryManager.getConsumerMessagesForConversation(request:completion:failure:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
         [Static]
         [Export("getConsumerMessagesForConversationWithRequest:completion:failure:")]
-        void GetConsumerMessagesForConversationWithRequest(EngagementHistoryRequest request, Action<NSArray<LPMessageEntity>> completion, Action<NSError> failure);
+        void GetConsumerMessagesForConversationWithRequest(EngagementHistoryRequest request, Action<NSArray> completion, Action<NSError> failure);
 
         // +(NSArray<LPMessageEntity *> * _Nonnull)handleConsumerMessagesResponse:(EngagementHistoryConsumerMessagesResponse * _Nonnull)response __attribute__((diagnose_if(0x7fcad798f1c8, "Swift method 'EngagementHistoryManager.handleConsumerMessagesResponse(_:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning"))) __attribute__((warn_unused_result));
         [Static]
@@ -4000,7 +4005,7 @@ namespace LivePersonChat
         // +(BOOL)initializeAMS __attribute__((warn_unused_result));
         [Static]
         [Export("initializeAMS")]
-        
+
         bool InitializeAMS { get; }
 
         // +(void)connectToSocket:(id<ConversationParamProtocol> _Nonnull)conversationQuery readyCompletion:(void (^ _Nullable)(void))readyCompletion;
@@ -4082,7 +4087,7 @@ namespace LivePersonChat
         // +(void)retrieveNewMessagesForConversation:(LPConversationEntity * _Nonnull)conversation completion:(void (^ _Nullable)(NSArray<LPMessageEntity *> * _Nonnull))completion failure:(void (^ _Nullable)(NSError * _Nonnull))failure;
         [Static]
         [Export("retrieveNewMessagesForConversation:completion:failure:")]
-        void RetrieveNewMessagesForConversation(LPConversationEntity conversation, [NullAllowed] Action<NSArray<LPMessageEntity>> completion, [NullAllowed] Action<NSError> failure);
+        void RetrieveNewMessagesForConversation(LPConversationEntity conversation, [NullAllowed] Action<NSArray> completion, [NullAllowed] Action<NSError> failure);
 
         // +(void)sendCSAT:(LPConversationEntity * _Nonnull)conversation csat:(CSATModel * _Nonnull)csat;
         [Static]
@@ -4122,13 +4127,13 @@ namespace LivePersonChat
         // +(BOOL)didFetchHistoryMessagingEventNotifications __attribute__((warn_unused_result));
         [Static]
         [Export("didFetchHistoryMessagingEventNotifications")]
-        
+
         bool DidFetchHistoryMessagingEventNotifications { get; }
 
         // +(BOOL)isFetchingHistoryMessages __attribute__((warn_unused_result));
         [Static]
         [Export("isFetchingHistoryMessages")]
-        
+
         bool IsFetchingHistoryMessages { get; }
 
         // +(NSString * _Nullable)agentNameUIRepresentation:(LPConversationEntity * _Nullable)conversation __attribute__((warn_unused_result));
@@ -4158,7 +4163,7 @@ namespace LivePersonChat
         // +(NSString * _Nonnull)clientPropertiesString __attribute__((warn_unused_result));
         [Static]
         [Export("clientPropertiesString")]
-        
+
         string ClientPropertiesString { get; }
 
         // +(void)uploadFileFromImageInfoWithImageInfo:(NSDictionary<NSString *,id> * _Nonnull)imageInfo caption:(NSString * _Nonnull)caption conversation:(LPConversationEntity * _Null_unspecified)conversation completion:(void (^ _Nonnull)(void))completion failure:(void (^ _Nonnull)(NSError * _Nonnull))failure;
@@ -4236,19 +4241,19 @@ namespace LivePersonChat
         // +(NSArray<LPMessageEntity *> * _Nullable)getLoadingStructuredContentMessages __attribute__((warn_unused_result));
         [Static]
         [NullAllowed, Export("getLoadingStructuredContentMessages")]
-        
+
         LPMessageEntity[] LoadingStructuredContentMessages { get; }
 
         // +(NSArray<LPMessageEntity *> * _Nullable)getLatestUnreadMessages __attribute__((warn_unused_result));
         [Static]
         [NullAllowed, Export("getLatestUnreadMessages")]
-        
+
         LPMessageEntity[] LatestUnreadMessages { get; }
 
         // +(NSArray<LPLinkPreviewEntity *> * _Nullable)getLoadingStructuredContentCustomItems __attribute__((warn_unused_result));
         [Static]
         [NullAllowed, Export("getLoadingStructuredContentCustomItems")]
-        
+
         LPLinkPreviewEntity[] LoadingStructuredContentCustomItems { get; }
 
         // +(BOOL)hasActiveController:(NSString * _Nonnull)brandID __attribute__((warn_unused_result));
@@ -4259,7 +4264,7 @@ namespace LivePersonChat
         // +(NSArray<NSString *> * _Nonnull)getAllConsumersID __attribute__((warn_unused_result));
         [Static]
         [Export("getAllConsumersID")]
-        
+
         string[] AllConsumersID { get; }
 
         // +(void)clearManagers;
@@ -4269,7 +4274,7 @@ namespace LivePersonChat
     }
 
     // @protocol LPAMSFacadeDelegate
-    [BaseType(typeof(LPAMSFacadeDelegate))]
+    //[BaseType(typeof(LPAMSFacadeDelegate))]
     [Protocol, Model]
     interface LPAMSFacadeDelegate
     {
@@ -4359,7 +4364,7 @@ namespace LivePersonChat
 
         // @optional -(NSString * _Nullable)brandAccountID __attribute__((warn_unused_result));
         [NullAllowed, Export("brandAccountID")]
-        
+
         string BrandAccountID { get; }
 
         // @optional -(void)sdkFeatureToggledWithFeature:(enum LPMessagingSDKFeature)feature toggle:(BOOL)toggle;
@@ -4368,7 +4373,7 @@ namespace LivePersonChat
 
         // @optional -(id<ConversationParamProtocol> _Nullable)getCurrentConversationQuery __attribute__((warn_unused_result));
         [NullAllowed, Export("getCurrentConversationQuery")]
-        
+
         ConversationParamProtocol CurrentConversationQuery { get; }
 
         // @optional -(void)historyCleared;
@@ -4416,7 +4421,7 @@ namespace LivePersonChat
         // +(BOOL)initializeAPI __attribute__((warn_unused_result));
         [Static]
         [Export("initializeAPI")]
-        
+
         bool InitializeAPI { get; }
 
         // +(void)setDelegate:(id<LPMessagingAPIDelegate> _Nonnull)delegate;
@@ -4483,7 +4488,7 @@ namespace LivePersonChat
         // +(NSString * _Nullable)getSDKVersion __attribute__((warn_unused_result));
         [Static]
         [NullAllowed, Export("getSDKVersion")]
-        
+
         string SDKVersion { get; }
 
         // +(void)resetConversationScreenSavedScrollPosition;
@@ -4549,7 +4554,7 @@ namespace LivePersonChat
         // +(void)retrieveNewMessagesForConversation:(LPConversationEntity * _Nonnull)conversation completion:(void (^ _Nullable)(NSArray<LPMessageEntity *> * _Nonnull))completion failure:(void (^ _Nullable)(NSError * _Nonnull))failure;
         [Static]
         [Export("retrieveNewMessagesForConversation:completion:failure:")]
-        void RetrieveNewMessagesForConversation(LPConversationEntity conversation, [NullAllowed] Action<NSArray<LPMessageEntity>> completion, [NullAllowed] Action<NSError> failure);
+        void RetrieveNewMessagesForConversation(LPConversationEntity conversation, [NullAllowed] Action<NSArray> completion, [NullAllowed] Action<NSError> failure);
 
         // +(void)sendCSAT:(LPConversationEntity * _Nonnull)conversation csat:(CSATModel * _Nonnull)csat;
         [Static]
@@ -4574,13 +4579,13 @@ namespace LivePersonChat
         // +(BOOL)didFetchHistoryMessagingEventNotifications __attribute__((warn_unused_result));
         [Static]
         [Export("didFetchHistoryMessagingEventNotifications")]
-        
+
         bool DidFetchHistoryMessagingEventNotifications { get; }
 
         // +(BOOL)isFetchingHistoryMessages __attribute__((warn_unused_result));
         [Static]
         [Export("isFetchingHistoryMessages")]
-        
+
         bool IsFetchingHistoryMessages { get; }
 
         // +(NSString * _Nullable)agentNameUIRepresentation:(LPConversationEntity * _Nullable)conversation __attribute__((warn_unused_result));
@@ -4665,7 +4670,7 @@ namespace LivePersonChat
         // +(NSArray<NSString *> * _Nonnull)getAllConsumersID __attribute__((warn_unused_result));
         [Static]
         [Export("getAllConsumersID")]
-        
+
         string[] AllConsumersID { get; }
 
         // +(void)prepareSecureFormWithForm:(LPFormEntity * _Nonnull)form completion:(void (^ _Nonnull)(void))completion failure:(void (^ _Nonnull)(NSError * _Nonnull))failure;
@@ -4676,13 +4681,13 @@ namespace LivePersonChat
         // +(NSArray<LPMessageEntity *> * _Nullable)getLoadingStructuredContentMessages __attribute__((warn_unused_result));
         [Static]
         [NullAllowed, Export("getLoadingStructuredContentMessages")]
-        
+
         LPMessageEntity[] LoadingStructuredContentMessages { get; }
 
         // +(NSArray<LPLinkPreviewEntity *> * _Nullable)getLoadingStructuredContentCustomItems __attribute__((warn_unused_result));
         [Static]
         [NullAllowed, Export("getLoadingStructuredContentCustomItems")]
-        
+
         LPLinkPreviewEntity[] LoadingStructuredContentCustomItems { get; }
 
         // +(BOOL)hasActiveController:(NSString * _Nonnull)brandID __attribute__((warn_unused_result));
@@ -4843,7 +4848,7 @@ namespace LivePersonChat
         // +(LPConversationEntity * _Nullable)getOpenConveration __attribute__((warn_unused_result));
         [Static]
         [NullAllowed, Export("getOpenConveration")]
-        
+
         LPConversationEntity OpenConveration { get; }
 
         // +(NSArray<NSString *> * _Nullable)getConsumerIdsRelatedToMessagesThatContains:(NSString * _Nonnull)text __attribute__((warn_unused_result));
@@ -4982,7 +4987,7 @@ namespace LivePersonChat
 
         // -(NSString * _Nullable)getSDKVersion __attribute__((warn_unused_result));
         [NullAllowed, Export("getSDKVersion")]
-        
+
         string SDKVersion { get; }
 
         // -(NSTimeInterval)getInactiveUserInteractionTimeInterval:(id<ConversationParamProtocol> _Nonnull)conversationQuery __attribute__((warn_unused_result));
@@ -5012,7 +5017,7 @@ namespace LivePersonChat
 
         // -(NSDictionary<NSString *,NSString *> * _Nonnull)getAllSupportedLanguages __attribute__((warn_unused_result));
         [Export("getAllSupportedLanguages")]
-        
+
         NSDictionary<NSString, NSString> AllSupportedLanguages { get; }
     }
 
@@ -5271,7 +5276,7 @@ namespace LivePersonChat
 
         // -(void)awakeFromNib __attribute__((objc_requires_super));
         [Export("awakeFromNib")]
-        [RequiresSuper]
+
         void AwakeFromNib();
     }
 
@@ -5313,11 +5318,11 @@ namespace LivePersonChat
 
         // @optional -(UIGestureRecognizer * _Nonnull)getTableViewCustomGestureRecognizer __attribute__((warn_unused_result));
         [Export("getTableViewCustomGestureRecognizer")]
-        
+
         UIGestureRecognizer TableViewCustomGestureRecognizer { get; }
     }
 
-   
+
 
 
     // @interface LPEngagementDetails : NSObject
@@ -5510,4 +5515,6 @@ namespace LivePersonChat
     interface LivePersonMonitoring
     {
     }
+
+
 }
