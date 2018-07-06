@@ -1,10 +1,30 @@
 ﻿<Properties StartupConfiguration="{5ECB8782-993F-4062-B587-724426FB1BEC}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="ChatBinding/Structs.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ChatBinding/ApiDefinition.cs">
     <Files>
-      <File FileName="ChatBinding/ApiDefinition.cs" Line="27" Column="25" />
-      <File FileName="ChatBinding/LPChatMessaging.cs" Line="19" Column="1" />
-      <File FileName="ChatBinding/Structs.cs" Line="150" Column="6" />
+      <File FileName="ChatBinding/ApiDefinition.cs" Line="1533" Column="57" />
+      <File FileName="ChatBinding/obj/Debug/ios/LivePersonChat/StructuredContentTextItem.g.cs" Line="98" Column="35" />
+      <File FileName="ChatBinding/obj/Debug/ios/LivePersonChat/StructuredContentWebviewItem.g.cs" Line="98" Column="38" />
+      <File FileName="ChatBinding/obj/Debug/ios/LivePersonChat/Toast.g.cs" Line="98" Column="15" />
+      <File FileName="ChatBinding/obj/Debug/ios/LivePersonChat/Toaster.g.cs" Line="142" Column="10" />
+      <File FileName="ChatBinding/obj/Debug/ios/LivePersonChat/TTRModel.g.cs" Line="101" Column="18" />
+      <File FileName="ChatBinding/obj/Debug/ios/LivePersonChat/StructuredContentStyle.g.cs" Line="85" Column="32" />
+      <File FileName="ChatBinding/obj/Debug/ios/LivePersonChat/LPAMSFacade.g.cs" Line="107" Column="55" />
+      <File FileName="ChatBinding/obj/Debug/ios/LivePersonChat/LPMessagingAPI.g.cs" Line="46" Column="44" />
+      <File FileName="ChatBinding/obj/Debug/ios/LivePersonChat/ConversationParamProtocol.g.cs" Line="46" Column="191" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="LPChat" expanded="True">
+            <Node name="ChatBinding" expanded="True" selected="True">
+              <Node name="References" expanded="True" />
+              <Node name="NativeReferenceFolder" expanded="True" />
+              <Node name="Packages" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -31,12 +31,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="Xamarin.iOS" />
-    <Reference Include="Xamarin.Swift3">
-      <HintPath>..\packages\Xamarin.Swift3.3.0.1\lib\xamarinios10\Xamarin.Swift3.dll</HintPath>
-    </Reference>
-    <Reference Include="Xamarin.Swift3.UIKit">
-      <HintPath>..\packages\Xamarin.Swift3.UIKit.3.1.0.2\lib\xamarinios10\Xamarin.Swift3.UIKit.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -52,8 +46,9 @@
     <NativeReference Include="..\..\LivePersonChat\DerivedData\LivePersonChat\Build\Products\libLivepersonChatFinal.a">
       <Kind>Static</Kind>
       <ForceLoad>True</ForceLoad>
-      <Frameworks>UIKit Foundation QuickLook Intents CoreGraphics CoreData QuartzCore CloudKit</Frameworks>
-      <WeakFrameworks>LPMessagingSDK LPInfra LPAMS LPMonitoring CFNetwork</WeakFrameworks>
+      <Frameworks>UIKit Foundation QuickLook Intents CoreGraphics CoreData Core Darwin Dispatch ObjectiveC QuartzCore CloudKit</Frameworks>
+      <WeakFrameworks></WeakFrameworks>
+      <LinkerFlags>-ObjC -lz</LinkerFlags>
     </NativeReference>
   </ItemGroup>
   <ItemGroup>

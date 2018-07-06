@@ -1,24 +1,13 @@
 ﻿using System;
-using AVFoundation;
-using CloudKit;
-using CoreAnimation;
+using System.Net.Sockets;
 using CoreData;
 using CoreFoundation;
 using CoreGraphics;
-using CoreImage;
-using CoreLocation;
-using CoreVideo;
-using FileProvider;
 using Foundation;
-using IOSurface;
-using ImageIO;
-using Intents;
-using Metal;
 using ObjCRuntime;
-using OpenGLES;
-using Security;
 using UIKit;
 using WebKit;
+
 
 namespace LivePersonChat
 {
@@ -66,7 +55,7 @@ namespace LivePersonChat
     }
 
     // @protocol ConversationParamProtocol
-    [BaseType(typeof(ConversationParamProtocol))]
+    //[BaseType(typeof(ConversationParamProtocol))]
     [Protocol, Model]
     interface ConversationParamProtocol
     {
@@ -385,7 +374,7 @@ namespace LivePersonChat
     }
 
     // @protocol GeneralManagerProtocol
-    [BaseType(typeof(GeneralManagerProtocol))]
+   // [BaseType(typeof(GeneralManagerProtocol))]
     [Protocol, Model]
     interface GeneralManagerProtocol
     {
@@ -563,35 +552,6 @@ namespace LivePersonChat
         IntPtr Constructor(NSEntityDescription entity, [NullAllowed] NSManagedObjectContext context);
     }
 
-    // @interface LPInfra_Swift_434 (LPBrandEntity)
-    [Category]
-    [BaseType(typeof(LPBrandEntity))]
-    interface LPBrandEntity_LPInfra_Swift_434
-    {
-        // -(LPConversationEntity * _Nullable)getCreatedConversation __attribute__((warn_unused_result));
-        [NullAllowed, Export("getCreatedConversation")]
-        
-        LPConversationEntity CreatedConversation { get; }
-
-        // -(NSArray<LPConversationEntity *> * _Nonnull)getConversations __attribute__((warn_unused_result));
-        [Export("getConversations")]
-        
-        LPConversationEntity[] Conversations { get; }
-
-        // -(NSArray<LPConversationEntity *> * _Nonnull)getConversations:(NSPredicate * _Nullable)predicate __attribute__((warn_unused_result));
-        [Export("getConversations:")]
-        LPConversationEntity[] GetConversations([NullAllowed] NSPredicate predicate);
-
-        // -(NSDate * _Nullable)getLastMessageTimeStamp __attribute__((warn_unused_result));
-        [NullAllowed, Export("getLastMessageTimeStamp")]
-        
-        NSDate LastMessageTimeStamp { get; }
-
-        // -(BOOL)isAuthenticated __attribute__((warn_unused_result));
-        [Export("isAuthenticated")]
-        
-        bool IsAuthenticated { get; }
-    }
 
     // @interface LPCampaignEntity : NSManagedObject
     [BaseType(typeof(NSManagedObject))]
@@ -1568,19 +1528,7 @@ namespace LivePersonChat
         LPConnection New();
     }
 
-    // @interface LPInfra_Swift_984 (LPConnection)
-    [Category]
-    [BaseType(typeof(LPConnection))]
-    interface LPConnection_LPInfra_Swift_984
-    {
-        // @property (readonly, nonatomic) NSInteger numberOfUnreadMessages __attribute__((diagnose_if(0x7fcad7917768, "Swift property 'LPConnection.numberOfUnreadMessages' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
-        [Export("numberOfUnreadMessages")]
-        nint NumberOfUnreadMessages { get; }
-
-        // @property (readonly, copy, nonatomic) NSString * _Nonnull titleLabel __attribute__((diagnose_if(0x7fcad7917aa0, "Swift property 'LPConnection.titleLabel' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
-        [Export("titleLabel")]
-        string TitleLabel { get; }
-    }
+   
 
     // @interface LPConversationEntity : NSManagedObject
     [BaseType(typeof(NSManagedObject))]
@@ -1684,86 +1632,6 @@ namespace LivePersonChat
         IntPtr Constructor(NSEntityDescription entity, [NullAllowed] NSManagedObjectContext context);
     }
 
-    // @interface LPInfra_Swift_1032 (LPConversationEntity)
-    [Category]
-    [BaseType(typeof(LPConversationEntity))]
-    interface LPConversationEntity_LPInfra_Swift_1032
-    {
-        // @property (readonly, copy, nonatomic) NSArray<LPMessageEntity *> * _Nonnull sortedMessages __attribute__((diagnose_if(0x7fcad791c418, "Swift property 'LPConversationEntity.sortedMessages' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
-        [Export("sortedMessages", ArgumentSemantic.Copy)]
-        LPMessageEntity[] SortedMessages { get; }
-
-        // @property (readonly, copy, nonatomic) NSArray<LPMessageEntity *> * _Nonnull unreadMessages __attribute__((diagnose_if(0x7fcad791c768, "Swift property 'LPConversationEntity.unreadMessages' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
-        [Export("unreadMessages", ArgumentSemantic.Copy)]
-        LPMessageEntity[] UnreadMessages { get; }
-
-        // @property (readonly, nonatomic, strong) LPMessageEntity * _Nullable lastMessageObj __attribute__((diagnose_if(0x7fcad791ca78, "Swift property 'LPConversationEntity.lastMessageObj' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
-        [NullAllowed, Export("lastMessageObj", ArgumentSemantic.Strong)]
-        LPMessageEntity LastMessageObj { get; }
-
-        // @property (readonly, nonatomic, strong) LPUserEntity * _Nullable lastMessageOriginator __attribute__((diagnose_if(0x7fcad7920da8, "Swift property 'LPConversationEntity.lastMessageOriginator' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
-        [NullAllowed, Export("lastMessageOriginator", ArgumentSemantic.Strong)]
-        LPUserEntity LastMessageOriginator { get; }
-
-        // @property (readonly, copy, nonatomic) NSString * _Nonnull relatedSocketID __attribute__((diagnose_if(0x7fcad7921088, "Swift property 'LPConversationEntity.relatedSocketID' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
-        [Export("relatedSocketID")]
-        string RelatedSocketID { get; }
-
-        // -(BOOL)isActivityInIdle __attribute__((diagnose_if(0x7fcad7921358, "Swift method 'LPConversationEntity.isActivityInIdle()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning"))) __attribute__((warn_unused_result));
-        [Export("isActivityInIdle")]
-        
-        bool IsActivityInIdle { get; }
-
-        // -(NSArray<LPMessageEntity *> * _Nonnull)getMessagesPage:(NSInteger)from pageSize:(NSInteger)pageSize __attribute__((diagnose_if(0x7fcad79217c0, "Swift method 'LPConversationEntity.getMessagesPage(_:pageSize:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning"))) __attribute__((warn_unused_result));
-        [Export("getMessagesPage:pageSize:")]
-        LPMessageEntity[] GetMessagesPage(nint from, nint pageSize);
-
-        // -(BOOL)isCurrentlyUrgent __attribute__((diagnose_if(0x7fcad7921aa8, "Swift method 'LPConversationEntity.isCurrentlyUrgent()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning"))) __attribute__((warn_unused_result));
-        [Export("isCurrentlyUrgent")]
-        
-        bool IsCurrentlyUrgent { get; }
-
-        // @property (readonly, nonatomic) BOOL isResolvedAutomatically __attribute__((diagnose_if(0x7fcad7921d78, "Swift property 'LPConversationEntity.isResolvedAutomatically' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
-        [Export("isResolvedAutomatically")]
-        bool IsResolvedAutomatically { get; }
-
-        // -(void)acceptSequence:(NSInteger)seq __attribute__((diagnose_if(0x7fcad79220e8, "Swift method 'LPConversationEntity.acceptSequence(_:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
-        [Export("acceptSequence:")]
-        void AcceptSequence(nint seq);
-
-        // -(void)resolve __attribute__((diagnose_if(0x7fcad79223b0, "Swift method 'LPConversationEntity.resolve()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning"))) __attribute__((diagnose_if(0x7fcad79223b0, "Swift method 'LPConversationEntity.resolve()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
-        [Export("resolve")]
-        void Resolve();
-
-        // -(void)resolve:(NSString * _Nonnull)closeReason __attribute__((diagnose_if(0x7fcad79227c8, "Swift method 'LPConversationEntity.resolve(_:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
-        [Export("resolve:")]
-        void Resolve(string closeReason);
-
-        // -(NSString * _Nonnull)getResolveDateString:(NSDate * _Nonnull)date __attribute__((diagnose_if(0x7fcad7922bb0, "Swift method 'LPConversationEntity.getResolveDateString(_:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning"))) __attribute__((warn_unused_result));
-        [Export("getResolveDateString:")]
-        string GetResolveDateString(NSDate date);
-
-        // +(LPConversationEntity * _Nonnull)createNewConversation:(LPBrandEntity * _Nonnull)brand __attribute__((diagnose_if(0x7fcad7922f50, "Swift method 'LPConversationEntity.createNewConversation(_:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning"))) __attribute__((warn_unused_result));
-        [Static]
-        [Export("createNewConversation:")]
-        LPConversationEntity CreateNewConversation(LPBrandEntity brand);
-
-        // @property (readonly, nonatomic) BOOL shouldQueryMessages;
-        [Export("shouldQueryMessages")]
-        bool ShouldQueryMessages { get; }
-
-        // @property (readonly, nonatomic) BOOL isOpen __attribute__((diagnose_if(0x7fcad79232d8, "Swift property 'LPConversationEntity.isOpen' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
-        [Export("isOpen")]
-        bool IsOpen { get; }
-
-        // @property (readonly, nonatomic) BOOL canShowCSAT __attribute__((diagnose_if(0x7fcad79235a8, "Swift property 'LPConversationEntity.canShowCSAT' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
-        [Export("canShowCSAT")]
-        bool CanShowCSAT { get; }
-
-        // -(void)updateTTRModelWithReset:(BOOL)reset __attribute__((diagnose_if(0x7fcad7923910, "Swift method 'LPConversationEntity.updateTTRModel(reset:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
-        [Export("updateTTRModelWithReset:")]
-        void UpdateTTRModelWithReset(bool reset);
-    }
 
     // @interface LPConversationHistoryControlParam : NSObject
     [BaseType(typeof(NSObject))]
@@ -1839,7 +1707,7 @@ namespace LivePersonChat
 
     // @interface LPCustomBoardEntity : NSManagedObject
     [BaseType(typeof(NSManagedObject))]
-    interface LPCustomBoardEntity
+    interface LPCustomBoardEntity 
     {
         // @property (copy, nonatomic) NSString * _Nonnull uid;
         [Export("uid")]
@@ -1959,24 +1827,6 @@ namespace LivePersonChat
         IntPtr Constructor(NSEntityDescription entity, [NullAllowed] NSManagedObjectContext context);
     }
 
-    // @interface LPInfra_Swift_1155 (LPFileEntity)
-    [Category]
-    [BaseType(typeof(LPFileEntity))]
-    interface LPFileEntity_LPInfra_Swift_1155
-    {
-        // -(UIImage * _Nullable)getThumbnailImage __attribute__((warn_unused_result));
-        [NullAllowed, Export("getThumbnailImage")]
-        
-        UIImage ThumbnailImage { get; }
-
-        // @property (readonly, nonatomic) BOOL isTransferring;
-        [Export("isTransferring")]
-        bool IsTransferring { get; }
-
-        // -(void)clearFileBlocks;
-        [Export("clearFileBlocks")]
-        void ClearFileBlocks();
-    }
 
     // @interface LPFormEntity : NSManagedObject
     [BaseType(typeof(NSManagedObject))]
@@ -2028,25 +1878,11 @@ namespace LivePersonChat
         IntPtr Constructor(NSEntityDescription entity, [NullAllowed] NSManagedObjectContext context);
     }
 
-    // @interface LPInfra_Swift_1183 (LPFormEntity)
-    [Category]
-    [BaseType(typeof(LPFormEntity))]
-    interface LPFormEntity_LPInfra_Swift_1183
-    {
-        // +(LPFormEntity * _Nonnull)createNewFormWithFormID:(NSString * _Nullable)formID invitationID:(NSString * _Nonnull)invitationID title:(NSString * _Nullable)title ownerMessage:(LPMessageEntity * _Nonnull)ownerMessage __attribute__((warn_unused_result));
-        [Static]
-        [Export("createNewFormWithFormID:invitationID:title:ownerMessage:")]
-        LPFormEntity CreateNewFormWithFormID([NullAllowed] string formID, string invitationID, [NullAllowed] string title, LPMessageEntity ownerMessage);
-
-        // @property (readonly, nonatomic, strong) LPConversationEntity * _Nonnull ownerConversation;
-        [Export("ownerConversation", ArgumentSemantic.Strong)]
-        LPConversationEntity OwnerConversation { get; }
-    }
 
     // @interface LPInfraFacade : NSObject
     [BaseType(typeof(NSObject))]
     [DisableDefaultCtor]
-    interface LPInfraFacade
+    interface LPInfraFacade//: ConversationParamProtocol
     {
         // +(instancetype _Nonnull)new __attribute__((deprecated("-init is unavailable")));
         [Static]
@@ -2401,7 +2237,7 @@ namespace LivePersonChat
         // +(void)getMessageBoardsWithUrl:(NSURL * _Nonnull)url completion:(void (^ _Nonnull)(NSArray<LPCustomBoardEntity *> * _Nonnull))completion failure:(void (^ _Nonnull)(NSError * _Nullable))failure;
         [Static]
         [Export("getMessageBoardsWithUrl:completion:failure:")]
-        void GetMessageBoardsWithUrl(NSUrl url, Action<NSArray<LPCustomBoardEntity>> completion, Action<NSError> failure);
+        void GetMessageBoardsWithUrl(NSUrl url,  Action<NSArray<NSManagedObject>> completion, Action<NSError> failure);
 
         // +(void)deleteAllPreviewImagesFromDiskWithCompletion:(void (^ _Nonnull)(void))completion failure:(void (^ _Nonnull)(NSError * _Nonnull))failure;
         [Static]
@@ -2483,24 +2319,6 @@ namespace LivePersonChat
         IntPtr Constructor(NSEntityDescription entity, [NullAllowed] NSManagedObjectContext context);
     }
 
-    // @interface LPInfra_Swift_1549 (LPLinkPreviewEntity)
-    [Category]
-    [BaseType(typeof(LPLinkPreviewEntity))]
-    interface LPLinkPreviewEntity_LPInfra_Swift_1549
-    {
-        // -(void)setImageWithImage:(UIImage * _Nullable)image relativePath:(NSString * _Nonnull)relativePath;
-        [Export("setImageWithImage:relativePath:")]
-        void SetImageWithImage([NullAllowed] UIImage image, string relativePath);
-
-        // -(void)getImageWithCompletion:(void (^ _Nonnull)(UIImage * _Nullable))completion failure:(void (^ _Nonnull)(NSError * _Nonnull))failure;
-        [Export("getImageWithCompletion:failure:")]
-        void GetImageWithCompletion(Action<UIImage> completion, Action<NSError> failure);
-
-        // -(UIImage * _Nullable)getImageFromCache __attribute__((warn_unused_result));
-        [NullAllowed, Export("getImageFromCache")]
-        
-        UIImage ImageFromCache { get; }
-    }
 
     // @interface LPLog : NSObject
     [BaseType(typeof(NSObject))]
@@ -2531,7 +2349,7 @@ namespace LivePersonChat
 
     // @interface LPMessageEntity : NSManagedObject
     [BaseType(typeof(NSManagedObject))]
-    interface LPMessageEntity
+    interface LPMessageEntity 
     {
         // @property (copy, nonatomic) NSDate * _Nonnull timestamp;
         [Export("timestamp", ArgumentSemantic.Copy)]
@@ -2595,7 +2413,7 @@ namespace LivePersonChat
 
         // @property (copy, nonatomic) void (^ _Nullable)(NSArray<LPCustomBoardEntity *> * _Nonnull) boardsBuildCompleted __attribute__((diagnose_if(0x7fcad793e6f8, "Swift property 'LPMessageEntity.boardsBuildCompleted' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
         [NullAllowed, Export("boardsBuildCompleted", ArgumentSemantic.Copy)]
-        Action<NSArray<LPCustomBoardEntity>> BoardsBuildCompleted { get; set; }
+        Action<NSArray<NSManagedObject>> BoardsBuildCompleted { get; set; }
 
         // @property (copy, nonatomic) void (^ _Nullable)(NSError * _Nonnull) boardsBuildFailed __attribute__((diagnose_if(0x7fcad793ea80, "Swift property 'LPMessageEntity.boardsBuildFailed' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
         [NullAllowed, Export("boardsBuildFailed", ArgumentSemantic.Copy)]
@@ -2616,50 +2434,6 @@ namespace LivePersonChat
         // @property (readonly, copy, nonatomic) NSString * _Nonnull description;
         [Export("description")]
         string Description { get; }
-    }
-
-    // @interface LPInfra_Swift_1601 (LPMessageEntity)
-    [Category]
-    [BaseType(typeof(LPMessageEntity))]
-    interface LPMessageEntity_LPInfra_Swift_1601
-    {
-        // @property (readonly, nonatomic) BOOL isSystemMessage __attribute__((diagnose_if(0x7fcad7941828, "Swift property 'LPMessageEntity.isSystemMessage' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
-        [Export("isSystemMessage")]
-        bool IsSystemMessage { get; }
-
-        // @property (readonly, nonatomic) BOOL isRemoteMessage __attribute__((diagnose_if(0x7fcad7941ad0, "Swift property 'LPMessageEntity.isRemoteMessage' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
-        [Export("isRemoteMessage")]
-        bool IsRemoteMessage { get; }
-
-        // @property (readonly, nonatomic) BOOL isUserMessage __attribute__((diagnose_if(0x7fcad7941d78, "Swift property 'LPMessageEntity.isUserMessage' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
-        [Export("isUserMessage")]
-        bool IsUserMessage { get; }
-
-        // @property (readonly, nonatomic) BOOL isControllerMessage __attribute__((diagnose_if(0x7fcad7942028, "Swift property 'LPMessageEntity.isControllerMessage' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
-        [Export("isControllerMessage")]
-        bool IsControllerMessage { get; }
-
-        // @property (readonly, nonatomic) BOOL isLinkPreview __attribute__((diagnose_if(0x7fcad79422d8, "Swift property 'LPMessageEntity.isLinkPreview' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
-        [Export("isLinkPreview")]
-        bool IsLinkPreview { get; }
-
-        // @property (readonly, nonatomic) BOOL isStructuredContent __attribute__((diagnose_if(0x7fcad794e798, "Swift property 'LPMessageEntity.isStructuredContent' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
-        [Export("isStructuredContent")]
-        bool IsStructuredContent { get; }
-
-        // +(NSString * _Nonnull)buildUID:(NSString * _Nonnull)convUID sequence:(NSInteger)sequence __attribute__((diagnose_if(0x7fcad794eb90, "Swift method 'LPMessageEntity.buildUID(_:sequence:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning"))) __attribute__((warn_unused_result));
-        [Static]
-        [Export("buildUID:sequence:")]
-        string BuildUID(string convUID, nint sequence);
-
-        // +(NSPredicate * _Nonnull)byDate:(NSDate * _Nonnull)date __attribute__((diagnose_if(0x7fcad794ef48, "Swift method 'LPMessageEntity.byDate(_:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning"))) __attribute__((warn_unused_result));
-        [Static]
-        [Export("byDate:")]
-        NSPredicate ByDate(NSDate date);
-
-        // -(void)getBoardsWithCompletion:(void (^ _Nonnull)(NSArray<LPCustomBoardEntity *> * _Nonnull))completion failure:(void (^ _Nonnull)(NSError * _Nonnull))failure __attribute__((diagnose_if(0x7fcad794f550, "Swift method 'LPMessageEntity.getBoards(completion:failure:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
-        [Export("getBoardsWithCompletion:failure:")]
-        void GetBoardsWithCompletion(Action<NSArray<LPCustomBoardEntity>> completion, Action<NSError> failure);
     }
 
     // @interface LPOperation : NSOperation
@@ -2877,28 +2651,6 @@ namespace LivePersonChat
         IntPtr Constructor(NSEntityDescription entity, [NullAllowed] NSManagedObjectContext context);
     }
 
-    // @interface LPInfra_Swift_1762 (LPUserEntity)
-    [Category]
-    [BaseType(typeof(LPUserEntity))]
-    interface LPUserEntity_LPInfra_Swift_1762
-    {
-        // @property (readonly, nonatomic) BOOL isConsumer;
-        [Export("isConsumer")]
-        bool IsConsumer { get; }
-
-        // @property (readonly, copy, nonatomic) NSString * _Nonnull fullName;
-        [Export("fullName")]
-        string FullName { get; }
-
-        // @property (readonly, nonatomic) BOOL isMe;
-        [Export("isMe")]
-        bool IsMe { get; }
-
-        // @property (readonly, nonatomic) BOOL isController;
-        [Export("isController")]
-        bool IsController { get; }
-    }
-
     // @interface LPUserProfileEntity : LPUserEntity
     [BaseType(typeof(LPUserEntity))]
     interface LPUserProfileEntity
@@ -3078,47 +2830,6 @@ namespace LivePersonChat
         MessagingServiceEvent New();
     }
 
-    // @interface LPInfra_Swift_1877 (NSManagedObject)
-    [Category]
-    [BaseType(typeof(NSManagedObject))]
-    interface NSManagedObject_LPInfra_Swift_1877
-    {
-        // -(void)saveContext __attribute__((diagnose_if(0x7fcad795e180, "Swift method 'NSManagedObject.saveContext()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
-        [Export("saveContext")]
-        void SaveContext();
-
-        // @property (readonly, nonatomic) BOOL isValid __attribute__((diagnose_if(0x7fcad795e450, "Swift property 'NSManagedObject.isValid' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
-        [Export("isValid")]
-        bool IsValid { get; }
-
-        // @property (readonly, copy, nonatomic) NSString * _Nullable objectIDPermanentString __attribute__((diagnose_if(0x7fcad795e798, "Swift property 'NSManagedObject.objectIDPermanentString' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
-        [NullAllowed, Export("objectIDPermanentString")]
-        string ObjectIDPermanentString { get; }
-    }
-
-    // @interface LPInfra_Swift_1886 (NSObject)
-    [Category]
-    [BaseType(typeof(NSObject))]
-    interface NSObject_LPInfra_Swift_1886
-    {
-        // -(NSDictionary<NSString *,id> * _Nonnull)serializeToDictionary __attribute__((diagnose_if(0x7fcad795ed68, "Swift method 'NSObject.serializeToDictionary()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning"))) __attribute__((warn_unused_result));
-        [Export("serializeToDictionary")]
-        
-        NSDictionary<NSString, NSObject> SerializeToDictionary { get; }
-    }
-
-    // @interface LPInfra_Swift_1895 (NSOperationQueue)
-    [Category]
-    [BaseType(typeof(NSOperationQueue))]
-    interface NSOperationQueue_LPInfra_Swift_1895
-    {
-        // +(NSOperationQueue * _Nonnull)sharedOperationQueue __attribute__((diagnose_if(0x7fcad795f170, "Swift method 'OperationQueue.sharedOperationQueue()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning"))) __attribute__((warn_unused_result));
-        [Static]
-        [Export("sharedOperationQueue")]
-        
-        NSOperationQueue SharedOperationQueue { get; }
-    }
-
     // @interface PublishEvent : GeneralResponse
     [BaseType(typeof(GeneralResponse))]
     interface PublishEvent
@@ -3227,10 +2938,12 @@ namespace LivePersonChat
         [Export("type")]
         string Type { get; set; }
 
+        /*
         // -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)aDecoder __attribute__((objc_designated_initializer));
         [Export("initWithCoder:")]
         [DesignatedInitializer]
         IntPtr Constructor(NSCoder aDecoder);
+        */
 
         // -(void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
         [Export("encodeWithCoder:")]
@@ -3275,10 +2988,12 @@ namespace LivePersonChat
         [Export("structuredContentAccessibilityLabel")]
         string StructuredContentAccessibilityLabel { get; }
 
+        /*
         // -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)aDecoder __attribute__((objc_designated_initializer));
         [Export("initWithCoder:")]
         [DesignatedInitializer]
         IntPtr Constructor(NSCoder aDecoder);
+        */
 
         // -(void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
         [Export("encodeWithCoder:")]
@@ -3298,11 +3013,12 @@ namespace LivePersonChat
         [NullAllowed, Export("title")]
         string Title { get; set; }
 
+        /*
         // -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)aDecoder __attribute__((objc_designated_initializer));
         [Export("initWithCoder:")]
         [DesignatedInitializer]
         IntPtr Constructor(NSCoder aDecoder);
-
+        */
         // -(void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
         [Export("encodeWithCoder:")]
         void EncodeWithCoder(NSCoder aCoder);
@@ -3325,11 +3041,12 @@ namespace LivePersonChat
         [NullAllowed, Export("actions", ArgumentSemantic.Copy)]
         StructuredContentAction[] Actions { get; set; }
 
+        /*
         // -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)aDecoder __attribute__((objc_designated_initializer));
         [Export("initWithCoder:")]
         [DesignatedInitializer]
         IntPtr Constructor(NSCoder aDecoder);
-
+        */
         // -(void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
         [Export("encodeWithCoder:")]
         void EncodeWithCoder(NSCoder aCoder);
@@ -3372,25 +3089,19 @@ namespace LivePersonChat
         [NullAllowed, Export("imageLoadingFailed", ArgumentSemantic.Copy)]
         Action<NSError> ImageLoadingFailed { get; set; }
 
+        /*
         // -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)aDecoder __attribute__((objc_designated_initializer));
         [Export("initWithCoder:")]
         [DesignatedInitializer]
         IntPtr Constructor(NSCoder aDecoder);
+        */
 
         // -(void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
         [Export("encodeWithCoder:")]
         void EncodeWithCoder(NSCoder aCoder);
     }
 
-    // @interface LPInfra_Swift_2046 (StructuredContentItem)
-    [Category]
-    [BaseType(typeof(StructuredContentItem))]
-    interface StructuredContentItem_LPInfra_Swift_2046
-    {
-        // -(void)iterateThroughWithIterationStep:(void (^ _Nonnull)(StructuredContentItem * _Nonnull))iterationStep __attribute__((diagnose_if(0x7fcad796af28, "Swift method 'StructuredContentItem.iterateThrough(iterationStep:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
-        [Export("iterateThroughWithIterationStep:")]
-        void IterateThroughWithIterationStep(Action<StructuredContentItem> iterationStep);
-    }
+   
 
     // @interface StructuredContentItemContainer : NSObject <NSCoding>
     [BaseType(typeof(NSObject))]
@@ -3410,11 +3121,12 @@ namespace LivePersonChat
         [DesignatedInitializer]
         IntPtr Constructor(StructuredContentItem structuredContentItem);
 
+        /*
         // -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)aDecoder __attribute__((objc_designated_initializer));
         [Export("initWithCoder:")]
         [DesignatedInitializer]
         IntPtr Constructor(NSCoder aDecoder);
-
+        */
         // -(void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
         [Export("encodeWithCoder:")]
         void EncodeWithCoder(NSCoder aCoder);
@@ -3433,11 +3145,12 @@ namespace LivePersonChat
         [NullAllowed, Export("itemsArray", ArgumentSemantic.Copy)]
         StructuredContentItem[] ItemsArray { get; set; }
 
+        /*
         // -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)decoder __attribute__((objc_designated_initializer));
         [Export("initWithCoder:")]
         [DesignatedInitializer]
         IntPtr Constructor(NSCoder decoder);
-
+        */
         // -(void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
         [Export("encodeWithCoder:")]
         void EncodeWithCoder(NSCoder aCoder);
@@ -3455,11 +3168,12 @@ namespace LivePersonChat
         [NullAllowed, Export("deepLinkUri")]
         string DeepLinkUri { get; set; }
 
+        /*
         // -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)aDecoder __attribute__((objc_designated_initializer));
         [Export("initWithCoder:")]
         [DesignatedInitializer]
         IntPtr Constructor(NSCoder aDecoder);
-
+        */
         // -(void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
         [Export("encodeWithCoder:")]
         void EncodeWithCoder(NSCoder aCoder);
@@ -3477,10 +3191,12 @@ namespace LivePersonChat
         [NullAllowed, Export("title")]
         string Title { get; set; }
 
+        /*
         // -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)aDecoder __attribute__((objc_designated_initializer));
         [Export("initWithCoder:")]
         [DesignatedInitializer]
         IntPtr Constructor(NSCoder aDecoder);
+        */
 
         // -(void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
         [Export("encodeWithCoder:")]
@@ -3503,10 +3219,12 @@ namespace LivePersonChat
         [NullAllowed, Export("snapShotImage", ArgumentSemantic.Strong)]
         UIImage SnapShotImage { get; set; }
 
+        /*
         // -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)aDecoder __attribute__((objc_designated_initializer));
         [Export("initWithCoder:")]
         [DesignatedInitializer]
         IntPtr Constructor(NSCoder aDecoder);
+        */
 
         // -(void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
         [Export("encodeWithCoder:")]
@@ -3525,10 +3243,12 @@ namespace LivePersonChat
         [Export("longitude")]
         int Longitude { get; set; }
 
+        /*
         // -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)aDecoder __attribute__((objc_designated_initializer));
         [Export("initWithCoder:")]
         [DesignatedInitializer]
         IntPtr Constructor(NSCoder aDecoder);
+        */
 
         // -(void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
         [Export("encodeWithCoder:")]
@@ -3543,10 +3263,12 @@ namespace LivePersonChat
         [Export("text")]
         string Text { get; set; }
 
+        /*
         // -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)aDecoder __attribute__((objc_designated_initializer));
         [Export("initWithCoder:")]
         [DesignatedInitializer]
         IntPtr Constructor(NSCoder aDecoder);
+        */
 
         // -(void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
         [Export("encodeWithCoder:")]
@@ -3570,10 +3292,12 @@ namespace LivePersonChat
         [NullAllowed, Export("size")]
         string Size { get; set; }
 
+        /*
         // -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)aDecoder __attribute__((objc_designated_initializer));
         [Export("initWithCoder:")]
         [DesignatedInitializer]
         IntPtr Constructor(NSCoder aDecoder);
+        */
 
         // -(void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
         [Export("encodeWithCoder:")]
@@ -3593,10 +3317,12 @@ namespace LivePersonChat
         [NullAllowed, Export("text")]
         string Text { get; set; }
 
+        /*
         // -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)aDecoder __attribute__((objc_designated_initializer));
         [Export("initWithCoder:")]
         [DesignatedInitializer]
         IntPtr Constructor(NSCoder aDecoder);
+        */
 
         // -(void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
         [Export("encodeWithCoder:")]
@@ -3611,10 +3337,12 @@ namespace LivePersonChat
         [Export("url")]
         string Url { get; set; }
 
+        /*
         // -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)aDecoder __attribute__((objc_designated_initializer));
         [Export("initWithCoder:")]
         [DesignatedInitializer]
         IntPtr Constructor(NSCoder aDecoder);
+        */
 
         // -(void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
         [Export("encodeWithCoder:")]
@@ -3664,12 +3392,12 @@ namespace LivePersonChat
         // -(void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
         [Export("encodeWithCoder:")]
         void EncodeWithCoder(NSCoder aCoder);
-
+        /*
         // -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)aDecoder __attribute__((objc_designated_initializer));
         [Export("initWithCoder:")]
         [DesignatedInitializer]
         IntPtr Constructor(NSCoder aDecoder);
-
+        */
         // -(BOOL)compareWithOther:(TTRModel * _Nonnull)other __attribute__((diagnose_if(0x7fcad797d0b0, "Swift method 'TTRModel.compare(other:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning"))) __attribute__((warn_unused_result));
         [Export("compareWithOther:")]
         bool CompareWithOther(TTRModel other);
@@ -3717,15 +3445,18 @@ namespace LivePersonChat
         [Export("description")]
         string Description { get; }
 
+
         // -(instancetype _Nonnull)initWithFrame:(CGRect)frame __attribute__((objc_designated_initializer));
         [Export("initWithFrame:")]
         [DesignatedInitializer]
         IntPtr Constructor(CGRect frame);
+       /*
 
         // -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)aDecoder __attribute__((objc_designated_initializer));
         [Export("initWithCoder:")]
         [DesignatedInitializer]
         IntPtr Constructor(NSCoder aDecoder);
+        */
     }
 
     // @interface Toaster : UIView
@@ -3765,102 +3496,12 @@ namespace LivePersonChat
         [DesignatedInitializer]
         IntPtr Constructor(CGRect frame);
 
+        /*
         // -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)aDecoder __attribute__((objc_designated_initializer));
         [Export("initWithCoder:")]
         [DesignatedInitializer]
         IntPtr Constructor(NSCoder aDecoder);
-    }
-
-    // @interface LPInfra_Swift_2279 (UIColor)
-    [Category]
-    [BaseType(typeof(UIColor))]
-    interface UIColor_LPInfra_Swift_2279
-    {
-        // -(instancetype _Nonnull)initWithRgba:(NSString * _Nonnull)rgba __attribute__((diagnose_if(0x7fcad7981ce8, "Swift initializer 'UIColor.init(rgba:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
-        [Export("initWithRgba:")]
-        IntPtr Constructor(string rgba);
-    }
-
-    // @interface LPInfra_Swift_2284 (UIDevice)
-    [Category]
-    [BaseType(typeof(UIDevice))]
-    interface UIDevice_LPInfra_Swift_2284
-    {
-        // @property (readonly, copy, nonatomic) NSString * _Nonnull modelNameIdentifier __attribute__((diagnose_if(0x7fcad79820e8, "Swift property 'UIDevice.modelNameIdentifier' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
-        [Export("modelNameIdentifier")]
-        string ModelNameIdentifier { get; }
-    }
-
-    // @interface LPInfra_Swift_2293 (UIFont)
-    [Category]
-    [BaseType(typeof(UIFont))]
-    interface UIFont_LPInfra_Swift_2293
-    {
-        // -(CGSize)sizeOfStringWithString:(NSString * _Nonnull)string constrainedToWidth:(double)width __attribute__((diagnose_if(0x7fcad7982690, "Swift method 'UIFont.sizeOfString(string:constrainedToWidth:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning"))) __attribute__((warn_unused_result));
-        [Export("sizeOfStringWithString:constrainedToWidth:")]
-        CGSize SizeOfStringWithString(string @string, double width);
-    }
-
-    // @interface LPInfra_Swift_2306 (UIImage)
-    [Category]
-    [BaseType(typeof(UIImage))]
-    interface UIImage_LPInfra_Swift_2306
-    {
-        // -(UIImage * _Nonnull)imageWithTint:(UIColor * _Nonnull)tint __attribute__((diagnose_if(0x7fcad7982b28, "Swift method 'UIImage.imageWithTint(_:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning"))) __attribute__((warn_unused_result));
-        [Export("imageWithTint:")]
-        UIImage ImageWithTint(UIColor tint);
-
-        // -(UIImage * _Nonnull)resizeImageWithTargetSize:(CGSize)targetSize scale:(CGFloat)scale __attribute__((diagnose_if(0x7fcad7982f30, "Swift method 'UIImage.resizeImage(targetSize:scale:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning"))) __attribute__((warn_unused_result));
-        [Export("resizeImageWithTargetSize:scale:")]
-        UIImage ResizeImageWithTargetSize(CGSize targetSize, nfloat scale);
-
-        // +(CGSize)getResizedImageSizeWithImage:(UIImage * _Nonnull)image maxHeight:(CGFloat)maxHeight maxWidth:(CGFloat)maxWidth __attribute__((diagnose_if(0x7fcad79833c8, "Swift method 'UIImage.getResizedImageSize(image:maxHeight:maxWidth:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning"))) __attribute__((warn_unused_result));
-        [Static]
-        [Export("getResizedImageSizeWithImage:maxHeight:maxWidth:")]
-        CGSize GetResizedImageSizeWithImage(UIImage image, nfloat maxHeight, nfloat maxWidth);
-
-        // -(UIImage * _Nullable)blurImageWithRadius:(CGFloat)radius size:(CGSize)size __attribute__((diagnose_if(0x7fcad79837e8, "Swift method 'UIImage.blurImage(radius:size:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning"))) __attribute__((warn_unused_result));
-        [Export("blurImageWithRadius:size:")]
-        [return: NullAllowed]
-        UIImage BlurImageWithRadius(nfloat radius, CGSize size);
-    }
-
-    // @interface LPInfra_Swift_2318 (UINavigationController)
-    [Category]
-    [BaseType(typeof(UINavigationController))]
-    interface UINavigationController_LPInfra_Swift_2318
-    {
-        // -(UIFont * _Nullable)getNavigationBarTitleFont __attribute__((diagnose_if(0x7fcad7983c20, "Swift method 'UINavigationController.getNavigationBarTitleFont()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning"))) __attribute__((warn_unused_result));
-        [NullAllowed, Export("getNavigationBarTitleFont")]
-        
-        UIFont NavigationBarTitleFont { get; }
-    }
-
-    // @interface LPInfra_Swift_2327 (UIWindow)
-    [Category]
-    [BaseType(typeof(UIWindow))]
-    interface UIWindow_LPInfra_Swift_2327
-    {
-        // -(UIViewController * _Nullable)topRootPresentedViewController __attribute__((diagnose_if(0x7fcad7984068, "Swift method 'UIWindow.topRootPresentedViewController()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning"))) __attribute__((warn_unused_result));
-        [NullAllowed, Export("topRootPresentedViewController")]
-        
-        UIViewController TopRootPresentedViewController { get; }
-
-        // -(UIViewController * _Nullable)topViewControllerWithBase:(UIViewController * _Nullable)base __attribute__((diagnose_if(0x7fcad7984420, "Swift method 'UIWindow.topViewController(base:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning"))) __attribute__((warn_unused_result));
-        [Export("topViewControllerWithBase:")]
-        [return: NullAllowed]
-        UIViewController TopViewControllerWithBase([NullAllowed] UIViewController @base);
-    }
-
-    // @interface LPInfra_Swift_2337 (NSUserDefaults)
-    [Category]
-    [BaseType(typeof(NSUserDefaults))]
-    interface NSUserDefaults_LPInfra_Swift_2337
-    {
-        // @property (readonly, nonatomic, strong, class) NSUserDefaults * _Nonnull lpStandard __attribute__((diagnose_if(0x7fcad7984800, "Swift property 'UserDefaults.lpStandard' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
-        [Static]
-        [Export("lpStandard", ArgumentSemantic.Strong)]
-        NSUserDefaults LpStandard { get; }
+        */
     }
 
     // @interface Utils : NSObject
@@ -3979,7 +3620,7 @@ namespace LivePersonChat
         // +(void)getConsumerMessagesForConversationWithRequest:(EngagementHistoryRequest * _Nonnull)request completion:(void (^ _Nonnull)(NSArray<LPMessageEntity *> * _Nonnull))completion failure:(void (^ _Nonnull)(NSError * _Nonnull))failure __attribute__((diagnose_if(0x7fcad798ecf8, "Swift method 'EngagementHistoryManager.getConsumerMessagesForConversation(request:completion:failure:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
         [Static]
         [Export("getConsumerMessagesForConversationWithRequest:completion:failure:")]
-        void GetConsumerMessagesForConversationWithRequest(EngagementHistoryRequest request, Action<NSArray<LPMessageEntity>> completion, Action<NSError> failure);
+        void GetConsumerMessagesForConversationWithRequest(EngagementHistoryRequest request, Action<NSArray<NSManagedObject>> completion, Action<NSError> failure);
 
         // +(NSArray<LPMessageEntity *> * _Nonnull)handleConsumerMessagesResponse:(EngagementHistoryConsumerMessagesResponse * _Nonnull)response __attribute__((diagnose_if(0x7fcad798f1c8, "Swift method 'EngagementHistoryManager.handleConsumerMessagesResponse(_:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning"))) __attribute__((warn_unused_result));
         [Static]
@@ -3990,7 +3631,7 @@ namespace LivePersonChat
     // @interface LPAMSFacade : NSObject
     [BaseType(typeof(NSObject))]
     [DisableDefaultCtor]
-    interface LPAMSFacade
+    interface LPAMSFacade : ConversationParamProtocol
     {
         // +(instancetype _Nonnull)new __attribute__((deprecated("-init is unavailable")));
         [Static]
@@ -4082,7 +3723,7 @@ namespace LivePersonChat
         // +(void)retrieveNewMessagesForConversation:(LPConversationEntity * _Nonnull)conversation completion:(void (^ _Nullable)(NSArray<LPMessageEntity *> * _Nonnull))completion failure:(void (^ _Nullable)(NSError * _Nonnull))failure;
         [Static]
         [Export("retrieveNewMessagesForConversation:completion:failure:")]
-        void RetrieveNewMessagesForConversation(LPConversationEntity conversation, [NullAllowed] Action<NSArray<LPMessageEntity>> completion, [NullAllowed] Action<NSError> failure);
+        void RetrieveNewMessagesForConversation(LPConversationEntity conversation, [NullAllowed] Action<NSArray<NSManagedObject>> completion, [NullAllowed] Action<NSError> failure);
 
         // +(void)sendCSAT:(LPConversationEntity * _Nonnull)conversation csat:(CSATModel * _Nonnull)csat;
         [Static]
@@ -4269,7 +3910,7 @@ namespace LivePersonChat
     }
 
     // @protocol LPAMSFacadeDelegate
-    [BaseType(typeof(LPAMSFacadeDelegate))]
+   // [BaseType(typeof(LPAMSFacadeDelegate))]
     [Protocol, Model]
     interface LPAMSFacadeDelegate
     {
@@ -4406,7 +4047,7 @@ namespace LivePersonChat
     // @interface LPMessagingAPI : NSObject
     [BaseType(typeof(NSObject))]
     [DisableDefaultCtor]
-    interface LPMessagingAPI
+    interface LPMessagingAPI 
     {
         // +(instancetype _Nonnull)new __attribute__((deprecated("-init is unavailable")));
         [Static]
@@ -4549,7 +4190,7 @@ namespace LivePersonChat
         // +(void)retrieveNewMessagesForConversation:(LPConversationEntity * _Nonnull)conversation completion:(void (^ _Nullable)(NSArray<LPMessageEntity *> * _Nonnull))completion failure:(void (^ _Nullable)(NSError * _Nonnull))failure;
         [Static]
         [Export("retrieveNewMessagesForConversation:completion:failure:")]
-        void RetrieveNewMessagesForConversation(LPConversationEntity conversation, [NullAllowed] Action<NSArray<LPMessageEntity>> completion, [NullAllowed] Action<NSError> failure);
+        void RetrieveNewMessagesForConversation(LPConversationEntity conversation, [NullAllowed] Action<NSArray<NSManagedObject>> completion, [NullAllowed] Action<NSError> failure);
 
         // +(void)sendCSAT:(LPConversationEntity * _Nonnull)conversation csat:(CSATModel * _Nonnull)csat;
         [Static]
@@ -5016,37 +4657,7 @@ namespace LivePersonChat
         NSDictionary<NSString, NSString> AllSupportedLanguages { get; }
     }
 
-    // @interface LPMessagingSDK_Swift_729 (LPMessagingSDK)
-    [Category]
-    [BaseType(typeof(LPMessagingSDK))]
-    interface LPMessagingSDK_LPMessagingSDK_Swift_729
-    {
-        // -(void)initSocketForBrandID:(NSString * _Nonnull)brandID agentToken:(NSString * _Nonnull)agentToken readyCompletion:(void (^ _Nullable)(void))readyCompletion __attribute__((objc_method_family("none")));
-        [Export("initSocketForBrandID:agentToken:readyCompletion:")]
-        void InitSocketForBrandID(string brandID, string agentToken, [NullAllowed] Action readyCompletion);
 
-        // -(id<ConversationViewControllerAgentDelegate> _Nonnull)showAgentConversationWithConversationViewParams:(LPConversationViewParams * _Nonnull)conversationViewParams __attribute__((warn_unused_result));
-        [Export("showAgentConversationWithConversationViewParams:")]
-        ConversationViewControllerAgentDelegate ShowAgentConversationWithConversationViewParams(LPConversationViewParams conversationViewParams);
-    }
-
-    // @interface LPMessagingSDK_Swift_737 (LPMessagingSDK)
-    [Category]
-    [BaseType(typeof(LPMessagingSDK))]
-    interface LPMessagingSDK_LPMessagingSDK_Swift_737
-    {
-        // -(void)logout;
-        [Export("logout")]
-        void Logout();
-
-        // -(void)logoutWithCompletion:(void (^ _Nonnull)(void))completion failure:(void (^ _Nonnull)(NSError * _Nonnull))failure;
-        [Export("logoutWithCompletion:failure:")]
-        void LogoutWithCompletion(Action completion, Action<NSError> failure);
-
-        // -(void)destruct;
-        [Export("destruct")]
-        void Destruct();
-    }
 
     // @protocol LPMessagingSDKNotificationDelegate
     [Protocol, Model]
@@ -5222,10 +4833,12 @@ namespace LivePersonChat
     [BaseType(typeof(UIView))]
     interface LPRadialProgressBar
     {
+        /*
         // -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)aDecoder __attribute__((objc_designated_initializer));
         [Export("initWithCoder:")]
         [DesignatedInitializer]
         IntPtr Constructor(NSCoder aDecoder);
+        */
     }
 
     // @interface NSBouncyView : UIView
@@ -5249,10 +4862,12 @@ namespace LivePersonChat
         [DesignatedInitializer]
         IntPtr Constructor(CGRect frame);
 
+        /*
         // -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)aDecoder __attribute__((objc_designated_initializer));
         [Export("initWithCoder:")]
         [DesignatedInitializer]
         IntPtr Constructor(NSCoder aDecoder);
+        */
     }
 
     // @interface RemoteUserIsTypingView : UIView
@@ -5264,11 +4879,12 @@ namespace LivePersonChat
         [DesignatedInitializer]
         IntPtr Constructor(CGRect frame);
 
+        /*
         // -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)aDecoder __attribute__((objc_designated_initializer));
         [Export("initWithCoder:")]
         [DesignatedInitializer]
         IntPtr Constructor(NSCoder aDecoder);
-
+        */
         // -(void)awakeFromNib __attribute__((objc_requires_super));
         [Export("awakeFromNib")]
         [RequiresSuper]
