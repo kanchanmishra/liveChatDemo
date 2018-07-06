@@ -8,7 +8,6 @@ using ObjCRuntime;
 using UIKit;
 using WebKit;
 
-
 namespace LivePersonChat
 {
 
@@ -56,7 +55,9 @@ namespace LivePersonChat
 
     // @protocol ConversationParamProtocol
     //[BaseType(typeof(ConversationParamProtocol))]
+
     [Protocol, Model]
+    [BaseType(typeof(NSObject))]
     interface ConversationParamProtocol
     {
         // @required -(NSArray<LPConversationEntity *> * _Nullable)getConversations __attribute__((warn_unused_result));
@@ -376,6 +377,7 @@ namespace LivePersonChat
     // @protocol GeneralManagerProtocol
    // [BaseType(typeof(GeneralManagerProtocol))]
     [Protocol, Model]
+    [BaseType(typeof(NSObject))]
     interface GeneralManagerProtocol
     {
         // @required -(void)clearManager;
@@ -1531,7 +1533,8 @@ namespace LivePersonChat
    
 
     // @interface LPConversationEntity : NSManagedObject
-    [BaseType(typeof(NSManagedObject))]
+   [BaseType(typeof(NSObject))]
+    [DisableDefaultCtor]
     interface LPConversationEntity
     {
         // @property (copy, nonatomic) NSString * _Nullable uid;
@@ -1630,6 +1633,11 @@ namespace LivePersonChat
         [Export("initWithEntity:insertIntoManagedObjectContext:")]
         [DesignatedInitializer]
         IntPtr Constructor(NSEntityDescription entity, [NullAllowed] NSManagedObjectContext context);
+
+        // +(instancetype _Nonnull)new __attribute__((deprecated("-init is unavailable")));
+        [Static]
+        [Export("new")]
+        LPConversationEntity New();
     }
 
 
@@ -1729,6 +1737,7 @@ namespace LivePersonChat
 
     // @protocol LPDataManagerSDKDelegate
     [Protocol, Model]
+    [BaseType(typeof(NSObject))]
     interface LPDataManagerSDKDelegate
     {
         // @required -(void)LPMessagingSDKDataEncryptionFailed:(NSError * _Nonnull)error;
@@ -2662,6 +2671,7 @@ namespace LivePersonChat
     }
 
     // @interface LPWebSocket
+    [BaseType(typeof(NSObject))]
     interface LPWebSocket
     {
         // @property (copy, nonatomic) NSString * _Nonnull requestIndex __attribute__((diagnose_if(0x7fcad79586b0, "Swift property 'LPWebSocket.requestIndex' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
@@ -3631,7 +3641,7 @@ namespace LivePersonChat
     // @interface LPAMSFacade : NSObject
     [BaseType(typeof(NSObject))]
     [DisableDefaultCtor]
-    interface LPAMSFacade : ConversationParamProtocol
+    interface LPAMSFacade 
     {
         // +(instancetype _Nonnull)new __attribute__((deprecated("-init is unavailable")));
         [Static]
@@ -3910,8 +3920,9 @@ namespace LivePersonChat
     }
 
     // @protocol LPAMSFacadeDelegate
-   // [BaseType(typeof(LPAMSFacadeDelegate))]
+   
     [Protocol, Model]
+    [BaseType(typeof(NSObject))]
     interface LPAMSFacadeDelegate
     {
         // @optional -(void)conversationDidResolve:(LPConversationEntity * _Nonnull)conversation isAgentSide:(BOOL)isAgentSide endTime:(NSDate * _Nullable)endTime;
@@ -4032,7 +4043,8 @@ namespace LivePersonChat
 
 
     // @protocol ConversationViewControllerAgentDelegate
-    [Protocol, Model]
+    [BaseType(typeof(NSObject))]
+    [Model][Protocol]
     interface ConversationViewControllerAgentDelegate
     {
         // @optional -(void)agentDidChangeUserInputText:(NSString * _Nonnull)text;
@@ -4495,8 +4507,9 @@ namespace LivePersonChat
     }
 
     // @protocol LPMessagingAPIDelegate <LPAMSFacadeDelegate>
-
+    //[BaseType(typeof(NSObject))]
     [Protocol, Model]
+    [BaseType(typeof(NSObject))]
     interface LPMessagingAPIDelegate : LPAMSFacadeDelegate
     {
     }
@@ -4660,7 +4673,9 @@ namespace LivePersonChat
 
 
     // @protocol LPMessagingSDKNotificationDelegate
+   
     [Protocol, Model]
+    [BaseType(typeof(NSObject))]
     interface LPMessagingSDKNotificationDelegate
     {
         // @optional -(void)LPMessagingSDKNotificationWithDidReceivePushNotification:(LPNotification * _Nonnull)notification;
@@ -4682,6 +4697,7 @@ namespace LivePersonChat
 
     // @protocol LPMessagingSDKdelegate
     [Protocol, Model]
+    [BaseType(typeof(NSObject))]
     interface LPMessagingSDKdelegate
     {
         // @optional -(void)LPMessagingSDKCustomButtonTapped;
@@ -4893,6 +4909,7 @@ namespace LivePersonChat
 
     // @protocol UIAdapterDelegate
     [Protocol, Model]
+    [BaseType(typeof(NSObject))]
     interface UIAdapterDelegate
     {
         // @optional -(BOOL)sendClickedWithMessage:(NSString * _Nonnull)message inConversation:(LPConversationEntity * _Nonnull)inConversation __attribute__((warn_unused_result));
