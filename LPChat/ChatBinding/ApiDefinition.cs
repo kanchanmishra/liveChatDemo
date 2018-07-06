@@ -8,7 +8,7 @@ using ObjCRuntime;
 using UIKit;
 using WebKit;
 
-namespace LivePersonChat
+namespace ChatBinding
 {
 
     // @interface GeneralResponse : NSObject

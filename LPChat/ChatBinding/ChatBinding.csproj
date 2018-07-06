@@ -43,16 +43,15 @@
     <ObjcBindingCoreSource Include="Structs.cs" />
   </ItemGroup>
   <ItemGroup>
-    <NativeReference Include="..\..\LivePersonChat\DerivedData\LivePersonChat\Build\Products\libLivepersonChatFinal.a">
-      <Kind>Static</Kind>
-      <ForceLoad>True</ForceLoad>
-      <Frameworks>UIKit Foundation QuickLook Intents CoreGraphics CoreData Core Darwin Dispatch ObjectiveC QuartzCore CloudKit</Frameworks>
-      <WeakFrameworks></WeakFrameworks>
-      <LinkerFlags>-ObjC -lz</LinkerFlags>
-    </NativeReference>
+    <BundleResource Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="packages.config" />
+    <NativeReference Include="libLivepersonChatFinal.a">
+      <Kind>Static</Kind>
+      <ForceLoad>True</ForceLoad>
+      <LinkerFlags>-ObjC, -lz</LinkerFlags>
+      <Frameworks>UIKit, Foundation, QuickLook, Intents, CoreGraphics, CoreData, Core, Darwin, Dispatch, ObjectiveC, QuartzCore, CloudKit</Frameworks>
+    </NativeReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Swift3.3.0.1\build\Xamarin.Swift3.targets" Condition="Exists('..\packages\Xamarin.Swift3.3.0.1\build\Xamarin.Swift3.targets')" />
