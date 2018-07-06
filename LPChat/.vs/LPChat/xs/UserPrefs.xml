@@ -1,9 +1,11 @@
 ﻿<Properties StartupConfiguration="{5ECB8782-993F-4062-B587-724426FB1BEC}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="ChatBinding/obj/Debug/LinkWithAttributes.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="LPChat/ViewController.cs">
     <Files>
       <File FileName="ChatBinding/ApiDefinition.cs" Line="11" Column="22" />
       <File FileName="ChatBinding/Structs.cs" Line="10" Column="20" />
       <File FileName="ChatBinding/obj/Debug/LinkWithAttributes.cs" Line="1" Column="111" />
+      <File FileName="LPChat/ViewController.cs" Line="28" Column="13" />
+      <File FileName="LPChat/Main.storyboard" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />

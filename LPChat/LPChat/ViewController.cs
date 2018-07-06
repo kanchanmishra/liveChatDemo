@@ -2,6 +2,8 @@
 
 using UIKit;
 using BusinessChat;
+using ChatBinding;
+using Foundation;
 
 
 namespace LPChat
@@ -17,7 +19,17 @@ namespace LPChat
         {
             base.ViewDidLoad();
             // Perform any additional setup after loading the view, typically from a nib.
-           
+
+            NSError error = null;
+
+
+            LPMessagingSDK.Instance.Initialize("33136087", null, out error);
+            lblMsg.Text = error.ToString();
+
+
+
+
+           //LPMessagingSDK.instance.initialize("Your account ID")
         }
 
         public override void DidReceiveMemoryWarning()
