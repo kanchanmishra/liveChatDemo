@@ -14,6 +14,7 @@ namespace ChatBinding
     // @interface GeneralResponse : NSObject
     [BaseType(typeof(NSObject))]
     [DisableDefaultCtor]
+    [Protocol]
     interface GeneralResponse
     {
         // @property (copy, nonatomic) NSString * _Nullable kind;
@@ -45,6 +46,7 @@ namespace ChatBinding
 
     // @interface AgentStateNotification : GeneralResponse
     [BaseType(typeof(GeneralResponse))]
+    [Protocol]
     interface AgentStateNotification
     {
         // -(instancetype _Nonnull)initWithJsonDict:(NSDictionary<NSString *,id> * _Nonnull)jsonDict __attribute__((objc_designated_initializer));
@@ -135,6 +137,7 @@ namespace ChatBinding
     // @interface BrandQuery : NSObject <ConversationParamProtocol>
     [BaseType(typeof(NSObject))]//, nam = "TtP7LPInfra25ConversationParamProtocol")]
     [DisableDefaultCtor]
+    [Protocol]
     interface BrandQuery : ConversationParamProtocol
     {
         // -(instancetype _Nonnull)initWithBrandID:(NSString * _Nonnull)brandID campaignInfo:(LPCampaignInfo * _Nullable)campaignInfo __attribute__((objc_designated_initializer));
@@ -215,6 +218,7 @@ namespace ChatBinding
     // @interface CSATModel : NSObject
     [BaseType(typeof(NSObject))]
     [DisableDefaultCtor]
+    [Protocol]
     interface CSATModel
     {
         // @property (nonatomic) BOOL skipped __attribute__((diagnose_if(0x7fcad78c25b0, "Swift property 'CSATModel.skipped' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
@@ -232,8 +236,9 @@ namespace ChatBinding
     }
 
     // @interface ConsumerQuery : BrandQuery
-    [BaseType(typeof(BrandQuery))]
-    interface ConsumerQuery
+    //[BaseType(typeof(BrandQuery))]
+    //[Protocol]
+    interface ConsumerQuery: BrandQuery
     {
         // -(instancetype _Nonnull)initWithConsumerID:(NSString * _Nonnull)consumerID brandID:(NSString * _Nonnull)brandID agentToken:(NSString * _Nonnull)agentToken __attribute__((objc_designated_initializer));
         [Export("initWithConsumerID:brandID:agentToken:")]
@@ -277,6 +282,7 @@ namespace ChatBinding
 
     // @interface ConversationChangeNotification : GeneralResponse
     [BaseType(typeof(GeneralResponse))]
+    [Protocol]
     interface ConversationChangeNotification
     {
         // -(instancetype _Nonnull)initWithJsonDict:(NSDictionary<NSString *,id> * _Nonnull)jsonDict __attribute__((objc_designated_initializer));
@@ -287,6 +293,7 @@ namespace ChatBinding
 
     // @interface EngagementHistoryConsumerMessagesResponse : GeneralResponse
     [BaseType(typeof(GeneralResponse))]
+    [Protocol]
     interface EngagementHistoryConsumerMessagesResponse
     {
         // @property (copy, nonatomic) NSString * _Nullable ownerConversationID;
@@ -306,6 +313,7 @@ namespace ChatBinding
     // @interface EngagementHistoryRequest : NSObject
     [BaseType(typeof(NSObject))]
     [DisableDefaultCtor]
+    [Protocol]
     interface EngagementHistoryRequest
     {
         // @property (copy, nonatomic) NSString * _Nonnull brandID __attribute__((diagnose_if(0x7fcad78c5308, "Swift property 'EngagementHistoryRequest.brandID' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
@@ -356,6 +364,7 @@ namespace ChatBinding
 
     // @interface ErrorResponse : GeneralResponse
     [BaseType(typeof(GeneralResponse))]
+    [Protocol]
     interface ErrorResponse
     {
         // -(instancetype _Nonnull)initWithJsonDict:(NSDictionary<NSString *,id> * _Nonnull)jsonDict __attribute__((objc_designated_initializer));
@@ -365,8 +374,9 @@ namespace ChatBinding
     }
 
     // @interface ExConversationChangeNotification : GeneralResponse
-    [BaseType(typeof(GeneralResponse))]
-    interface ExConversationChangeNotification
+    //[BaseType(typeof(GeneralResponse))]
+
+    interface ExConversationChangeNotification : GeneralResponse
     {
         // -(instancetype _Nonnull)initWithJsonDict:(NSDictionary<NSString *,id> * _Nonnull)jsonDict __attribute__((objc_designated_initializer));
         [Export("initWithJsonDict:")]
@@ -388,6 +398,7 @@ namespace ChatBinding
 
     // @interface SubscribeExConversations : GeneralResponse
     [BaseType(typeof(GeneralResponse))]
+    [Protocol]
     interface SubscribeExConversations
     {
         // -(instancetype _Nonnull)initWithJsonDict:(NSDictionary<NSString *,id> * _Nonnull)jsonDict __attribute__((objc_designated_initializer));
@@ -398,6 +409,7 @@ namespace ChatBinding
 
     // @interface GenericSubscribeResponse : SubscribeExConversations
     [BaseType(typeof(SubscribeExConversations))]
+    [Protocol]
     interface GenericSubscribeResponse
     {
         // -(instancetype _Nonnull)initWithJsonDict:(NSDictionary<NSString *,id> * _Nonnull)jsonDict __attribute__((objc_designated_initializer));
@@ -408,6 +420,7 @@ namespace ChatBinding
 
     // @interface GetBrandProfile : GeneralResponse
     [BaseType(typeof(GeneralResponse))]
+    [Protocol]
     interface GetBrandProfile
     {
         // -(instancetype _Nonnull)initWithJsonDict:(NSDictionary<NSString *,id> * _Nonnull)jsonDict __attribute__((objc_designated_initializer));
@@ -418,6 +431,7 @@ namespace ChatBinding
 
     // @interface GetClock : GeneralResponse
     [BaseType(typeof(GeneralResponse))]
+    [Protocol]
     interface GetClock
     {
         // -(instancetype _Nonnull)initWithJsonDict:(NSDictionary<NSString *,id> * _Nonnull)jsonDict __attribute__((objc_designated_initializer));
@@ -428,6 +442,7 @@ namespace ChatBinding
 
     // @interface GetUserProfile : GeneralResponse
     [BaseType(typeof(GeneralResponse))]
+    [Protocol]
     interface GetUserProfile
     {
         // -(instancetype _Nonnull)initWithJsonDict:(NSDictionary<NSString *,id> * _Nonnull)jsonDict __attribute__((objc_designated_initializer));
@@ -444,6 +459,7 @@ namespace ChatBinding
    
     // @interface LPAccountEntity : NSManagedObject
     [BaseType(typeof(NSManagedObject))]
+    [Protocol]
     interface LPAccountEntity
     {
         // @property (copy, nonatomic) NSString * _Nonnull accountId;
@@ -462,6 +478,7 @@ namespace ChatBinding
 
     // @interface LPAuthenticationParams : NSObject
     [BaseType(typeof(NSObject))]
+    [Protocol]
     [DisableDefaultCtor]
     interface LPAuthenticationParams
     {
@@ -498,6 +515,7 @@ namespace ChatBinding
 
     // @interface LPBrandEntity : NSManagedObject
     [BaseType(typeof(NSManagedObject))]
+    [Protocol]
     interface LPBrandEntity
     {
         // @property (copy, nonatomic) NSString * _Nonnull iconURL;
@@ -557,6 +575,7 @@ namespace ChatBinding
 
     // @interface LPCampaignEntity : NSManagedObject
     [BaseType(typeof(NSManagedObject))]
+    [Protocol]
     interface LPCampaignEntity
     {
         // @property (copy, nonatomic) NSString * _Nonnull uid;
@@ -584,6 +603,7 @@ namespace ChatBinding
     // @interface LPCampaignInfo : NSObject
     [BaseType(typeof(NSObject))]
     [DisableDefaultCtor]
+    [Protocol]
     interface LPCampaignInfo
     {
         // @property (nonatomic) NSInteger campaignId;
@@ -620,6 +640,7 @@ namespace ChatBinding
     // @interface LPConfig : NSObject
     [BaseType(typeof(NSObject))]
     [DisableDefaultCtor]
+    [Protocol]
     interface LPConfig
     {
         // @property (nonatomic, strong) UIColor * _Nonnull remoteUserBubbleBackgroundColor;
@@ -1493,6 +1514,7 @@ namespace ChatBinding
     // @interface LPConnection : NSObject
     [BaseType(typeof(NSObject))]
     [DisableDefaultCtor]
+    [Protocol]
     interface LPConnection
     {
         // @property (nonatomic, strong) LPUserEntity * _Null_unspecified consumer __attribute__((diagnose_if(0x7fcad7915bc8, "Swift property 'LPConnection.consumer' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
@@ -1535,6 +1557,7 @@ namespace ChatBinding
     // @interface LPConversationEntity : NSManagedObject
    [BaseType(typeof(NSObject))]
     [DisableDefaultCtor]
+    [Protocol]
     interface LPConversationEntity
     {
         // @property (copy, nonatomic) NSString * _Nullable uid;
@@ -1644,6 +1667,7 @@ namespace ChatBinding
     // @interface LPConversationHistoryControlParam : NSObject
     [BaseType(typeof(NSObject))]
     [DisableDefaultCtor]
+    [Protocol]
     interface LPConversationHistoryControlParam
     {
         // @property (nonatomic) NSInteger historyConversationsMaxDays;
@@ -1680,6 +1704,7 @@ namespace ChatBinding
     // @interface LPConversationViewParams : NSObject
     [BaseType(typeof(NSObject))]
     [DisableDefaultCtor]
+    [Protocol]
     interface LPConversationViewParams
     {
         // @property (nonatomic, strong) id<ConversationParamProtocol> _Nonnull conversationQuery;
@@ -1715,6 +1740,7 @@ namespace ChatBinding
 
     // @interface LPCustomBoardEntity : NSManagedObject
     [BaseType(typeof(NSManagedObject))]
+    [Protocol]
     interface LPCustomBoardEntity 
     {
         // @property (copy, nonatomic) NSString * _Nonnull uid;
@@ -1748,6 +1774,7 @@ namespace ChatBinding
 
     // @interface LPFileEntity : NSManagedObject
     [BaseType(typeof(NSManagedObject))]
+    [Protocol]
     interface LPFileEntity
     {
         // @property (copy, nonatomic) NSString * _Nullable fileExtension;
@@ -1839,6 +1866,7 @@ namespace ChatBinding
 
     // @interface LPFormEntity : NSManagedObject
     [BaseType(typeof(NSManagedObject))]
+    [Protocol]
     interface LPFormEntity
     {
         // @property (copy, nonatomic) NSString * _Nullable formID;
@@ -1891,6 +1919,7 @@ namespace ChatBinding
     // @interface LPInfraFacade : NSObject
     [BaseType(typeof(NSObject))]
     [DisableDefaultCtor]
+    [Protocol]
     interface LPInfraFacade//: ConversationParamProtocol
     {
         // +(instancetype _Nonnull)new __attribute__((deprecated("-init is unavailable")));
@@ -2268,6 +2297,7 @@ namespace ChatBinding
 
     // @interface LPLinkPreviewEntity : NSManagedObject
     [BaseType(typeof(NSManagedObject))]
+    [Protocol]
     interface LPLinkPreviewEntity
     {
         // @property (copy, nonatomic) NSString * _Nonnull uid;
@@ -2332,6 +2362,7 @@ namespace ChatBinding
     // @interface LPLog : NSObject
     [BaseType(typeof(NSObject))]
     [DisableDefaultCtor]
+    [Protocol]
     interface LPLog
     {
         // @property (copy, nonatomic) NSString * _Nullable timestamp;
@@ -2358,6 +2389,7 @@ namespace ChatBinding
 
     // @interface LPMessageEntity : NSManagedObject
     [BaseType(typeof(NSManagedObject))]
+    [Protocol]
     interface LPMessageEntity 
     {
         // @property (copy, nonatomic) NSDate * _Nonnull timestamp;
@@ -2447,6 +2479,7 @@ namespace ChatBinding
 
     // @interface LPOperation : NSOperation
     [BaseType(typeof(NSOperation))]
+    [Protocol]
     interface LPOperation
     {
         // @property (getter = isExecuting, nonatomic) BOOL executing;
@@ -2484,6 +2517,7 @@ namespace ChatBinding
 
     // @interface LPSDKManager : NSObject <GeneralManagerProtocol>
     [BaseType(typeof(NSObject))]
+    [Protocol]
     interface LPSDKManager : GeneralManagerProtocol
     {
         // @property (nonatomic, strong) id<ConversationParamProtocol> _Nullable conversationQuery;
@@ -2529,6 +2563,7 @@ namespace ChatBinding
     // @interface LPTimer : NSObject
     [BaseType(typeof(NSObject))]
     [DisableDefaultCtor]
+    [Protocol]
     interface LPTimer
     {
         // -(instancetype _Nonnull)initWithDuration:(NSTimeInterval)duration handler:(void (^ _Nonnull)(NSTimeInterval))handler __attribute__((diagnose_if(0x7fcad7953488, "Swift initializer 'LPTimer.init(duration:handler:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning"))) __attribute__((objc_designated_initializer));
@@ -2549,6 +2584,7 @@ namespace ChatBinding
     // @interface LPUser : NSObject
     [BaseType(typeof(NSObject))]
     [DisableDefaultCtor]
+    [Protocol]
     interface LPUser
     {
         // @property (copy, nonatomic) NSString * _Nullable firstName;
@@ -2600,6 +2636,7 @@ namespace ChatBinding
 
     // @interface LPUserEntity : NSManagedObject
     [BaseType(typeof(NSManagedObject))]
+    [Protocol] // Add this
     interface LPUserEntity
     {
         // @property (copy, nonatomic) NSString * _Nonnull uid;
@@ -2661,8 +2698,8 @@ namespace ChatBinding
     }
 
     // @interface LPUserProfileEntity : LPUserEntity
-    [BaseType(typeof(LPUserEntity))]
-    interface LPUserProfileEntity
+   // [BaseType(typeof(LPUserEntity))]
+    interface LPUserProfileEntity : LPUserEntity
     {
         // -(instancetype _Nonnull)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context __attribute__((objc_designated_initializer));
         [Export("initWithEntity:insertIntoManagedObjectContext:")]
@@ -2672,6 +2709,7 @@ namespace ChatBinding
 
     // @interface LPWebSocket
     [BaseType(typeof(NSObject))]
+    [Protocol] // Add this
     interface LPWebSocket
     {
         // @property (copy, nonatomic) NSString * _Nonnull requestIndex __attribute__((diagnose_if(0x7fcad79586b0, "Swift property 'LPWebSocket.requestIndex' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
@@ -2718,6 +2756,7 @@ namespace ChatBinding
     // @interface LanguagesManager : NSObject
     [BaseType(typeof(NSObject))]
     [DisableDefaultCtor]
+    [Protocol]
     interface LanguagesManager
     {
         // @property (readonly, copy, nonatomic, class) NSDictionary<NSString *,NSString *> * _Nonnull supportedLanguages;
@@ -2767,6 +2806,7 @@ namespace ChatBinding
     // @interface LogEvent : NSObject
     [BaseType(typeof(NSObject))]
     [DisableDefaultCtor]
+    [Protocol]
     interface LogEvent
     {
         // @property (readonly, nonatomic) enum LogLevel logLevel;
@@ -2796,8 +2836,8 @@ namespace ChatBinding
     }
 
     // @interface MessagingEventNotification : GeneralResponse
-    [BaseType(typeof(GeneralResponse))]
-    interface MessagingEventNotification
+   // [BaseType(typeof(GeneralResponse))]
+    interface MessagingEventNotification : GeneralResponse
     {
         // @property (copy, nonatomic) NSString * _Nullable conversationID;
         [NullAllowed, Export("conversationID")]
@@ -2812,6 +2852,7 @@ namespace ChatBinding
     // @interface MessagingServiceEvent : NSObject
     [BaseType(typeof(NSObject))]
     [DisableDefaultCtor]
+    [Protocol]
     interface MessagingServiceEvent
     {
         // @property (readonly, copy, nonatomic) NSString * _Nullable eventId;
@@ -2841,8 +2882,8 @@ namespace ChatBinding
     }
 
     // @interface PublishEvent : GeneralResponse
-    [BaseType(typeof(GeneralResponse))]
-    interface PublishEvent
+   // [BaseType(typeof(GeneralResponse))]
+    interface PublishEvent : GeneralResponse
     {
         // -(instancetype _Nonnull)initWithJsonDict:(NSDictionary<NSString *,id> * _Nonnull)jsonDict __attribute__((objc_designated_initializer));
         [Export("initWithJsonDict:")]
@@ -2851,8 +2892,8 @@ namespace ChatBinding
     }
 
     // @interface RequestConversation : GeneralResponse
-    [BaseType(typeof(GeneralResponse))]
-    interface RequestConversation
+    //[BaseType(typeof(GeneralResponse))]
+    interface RequestConversation : GeneralResponse
     {
         // -(instancetype _Nonnull)initWithJsonDict:(NSDictionary<NSString *,id> * _Nonnull)jsonDict __attribute__((objc_designated_initializer));
         [Export("initWithJsonDict:")]
@@ -2862,7 +2903,8 @@ namespace ChatBinding
 
     // @interface RequestSwiftURL : GeneralResponse
     [BaseType(typeof(GeneralResponse))]
-    interface RequestSwiftURL
+    [Protocol]
+    interface RequestSwiftURL 
     {
         // -(instancetype _Nonnull)initWithJsonDict:(NSDictionary<NSString *,id> * _Nonnull)jsonDict __attribute__((objc_designated_initializer));
         [Export("initWithJsonDict:")]
@@ -2873,6 +2915,7 @@ namespace ChatBinding
     // @interface Ring : NSObject
     [BaseType(typeof(NSObject))]
     [DisableDefaultCtor]
+    [Protocol] // Add this
     interface Ring
     {
         // @property (copy, nonatomic) NSString * _Nullable ringID __attribute__((diagnose_if(0x7fcad7960368, "Swift property 'Ring.ringID' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
@@ -2907,6 +2950,7 @@ namespace ChatBinding
 
     // @interface RingUpdated : GeneralResponse
     [BaseType(typeof(GeneralResponse))]
+    [Protocol] // Add this
     interface RingUpdated
     {
         // -(instancetype _Nonnull)initWithJsonDict:(NSDictionary<NSString *,id> * _Nonnull)jsonDict __attribute__((objc_designated_initializer));
@@ -2916,8 +2960,8 @@ namespace ChatBinding
     }
 
     // @interface RoutingTaskNotification : GeneralResponse
-    [BaseType(typeof(GeneralResponse))]
-    interface RoutingTaskNotification
+   // [BaseType(typeof(GeneralResponse))]
+    interface RoutingTaskNotification : GeneralResponse
     {
         // -(instancetype _Nonnull)initWithJsonDict:(NSDictionary<NSString *,id> * _Nonnull)jsonDict __attribute__((objc_designated_initializer));
         [Export("initWithJsonDict:")]
@@ -2926,8 +2970,8 @@ namespace ChatBinding
     }
 
     // @interface SecureFormReadOTKResponse : GeneralResponse
-    [BaseType(typeof(GeneralResponse))]
-    interface SecureFormReadOTKResponse
+    //[BaseType(typeof(GeneralResponse))]
+    interface SecureFormReadOTKResponse : GeneralResponse
     {
         // -(instancetype _Nonnull)initWithJsonDict:(NSDictionary<NSString *,id> * _Nonnull)jsonDict __attribute__((objc_designated_initializer));
         [Export("initWithJsonDict:")]
@@ -2938,6 +2982,7 @@ namespace ChatBinding
     // @interface StructuredContentAction : NSObject <NSCoding>
     [BaseType(typeof(NSObject))]
     [DisableDefaultCtor]
+    [Protocol] // Add this
     interface StructuredContentAction : INSCoding
     {
         // @property (copy, nonatomic) NSString * _Nonnull ID __attribute__((diagnose_if(0x7fcad7962f08, "Swift property 'StructuredContentAction.ID' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
@@ -2968,6 +3013,7 @@ namespace ChatBinding
     // @interface StructuredContentItem : NSObject <NSCoding>
     [BaseType(typeof(NSObject))]
     [DisableDefaultCtor]
+    [Protocol]
     interface StructuredContentItem : INSCoding
     {
         // @property (copy, nonatomic) NSString * _Nonnull ID __attribute__((diagnose_if(0x7fcad79640f0, "Swift property 'StructuredContentItem.ID' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
@@ -2982,9 +3028,11 @@ namespace ChatBinding
         [NullAllowed, Export("tooltip")]
         string Tooltip { get; set; }
 
+        /*
         // @property (nonatomic, strong) StructuredContentClick * _Nullable click __attribute__((diagnose_if(0x7fcad79649a8, "Swift property 'StructuredContentItem.click' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
         [NullAllowed, Export("click", ArgumentSemantic.Strong)]
-        StructuredContentClick Click { get; set; }
+       StructuredContentClick Click { get; set; }
+        */
 
         // @property (nonatomic, strong) StructuredContentStyle * _Nullable style __attribute__((diagnose_if(0x7fcad7964cd8, "Swift property 'StructuredContentItem.style' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
         [NullAllowed, Export("style", ArgumentSemantic.Strong)]
@@ -3009,6 +3057,7 @@ namespace ChatBinding
         [Export("encodeWithCoder:")]
         void EncodeWithCoder(NSCoder aCoder);
 
+       
         // +(instancetype _Nonnull)new __attribute__((deprecated("-init is unavailable")));
         [Static]
         [Export("new")]
@@ -3016,8 +3065,8 @@ namespace ChatBinding
     }
 
     // @interface StructuredContentButtonItem : StructuredContentItem
-    [BaseType(typeof(StructuredContentItem))]
-    interface StructuredContentButtonItem
+    //[BaseType(typeof(StructuredContentItem))]
+    interface StructuredContentButtonItem: StructuredContentItem
     {
         // @property (copy, nonatomic) NSString * _Nullable title __attribute__((diagnose_if(0x7fcad7966708, "Swift property 'StructuredContentButtonItem.title' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
         [NullAllowed, Export("title")]
@@ -3034,9 +3083,12 @@ namespace ChatBinding
         void EncodeWithCoder(NSCoder aCoder);
     }
 
+    /*
+
     // @interface StructuredContentClick : NSObject <NSCoding>
     [BaseType(typeof(NSObject))]
     [DisableDefaultCtor]
+    [Protocol]
     interface StructuredContentClick : INSCoding
     {
         // @property (copy, nonatomic) NSString * _Nonnull ID __attribute__((diagnose_if(0x7fcad7967088, "Swift property 'StructuredContentClick.ID' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
@@ -3051,12 +3103,7 @@ namespace ChatBinding
         [NullAllowed, Export("actions", ArgumentSemantic.Copy)]
         StructuredContentAction[] Actions { get; set; }
 
-        /*
-        // -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)aDecoder __attribute__((objc_designated_initializer));
-        [Export("initWithCoder:")]
-        [DesignatedInitializer]
-        IntPtr Constructor(NSCoder aDecoder);
-        */
+
         // -(void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
         [Export("encodeWithCoder:")]
         void EncodeWithCoder(NSCoder aCoder);
@@ -3067,9 +3114,12 @@ namespace ChatBinding
         StructuredContentClick New();
     }
 
+    */
+
     // @interface StructuredContentImageItem : StructuredContentItem
-    [BaseType(typeof(StructuredContentItem))]
-    interface StructuredContentImageItem
+    //[BaseType(typeof(StructuredContentItem))]
+   
+    interface StructuredContentImageItem : StructuredContentItem
     {
         // @property (nonatomic, strong) UIImage * _Nullable image __attribute__((diagnose_if(0x7fcad7968788, "Swift property 'StructuredContentImageItem.image' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
         [NullAllowed, Export("image", ArgumentSemantic.Strong)]
@@ -3116,6 +3166,7 @@ namespace ChatBinding
     // @interface StructuredContentItemContainer : NSObject <NSCoding>
     [BaseType(typeof(NSObject))]
     [DisableDefaultCtor]
+    [Protocol] // Add this
     interface StructuredContentItemContainer : INSCoding
     {
         // @property (copy, nonatomic) NSString * _Nonnull ID __attribute__((diagnose_if(0x7fcad796b428, "Swift property 'StructuredContentItemContainer.ID' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
@@ -3148,8 +3199,8 @@ namespace ChatBinding
     }
 
     // @interface StructuredContentLayoutItem : StructuredContentItem
-    [BaseType(typeof(StructuredContentItem))]
-    interface StructuredContentLayoutItem
+    //[BaseType(typeof(StructuredContentItem))]
+    interface StructuredContentLayoutItem : StructuredContentItem
     {
         // @property (copy, nonatomic) NSArray<StructuredContentItem *> * _Nullable itemsArray __attribute__((diagnose_if(0x7fcad796ca28, "Swift property 'StructuredContentLayoutItem.itemsArray' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
         [NullAllowed, Export("itemsArray", ArgumentSemantic.Copy)]
@@ -3167,8 +3218,8 @@ namespace ChatBinding
     }
 
     // @interface StructuredContentLinkAction : StructuredContentAction
-    [BaseType(typeof(StructuredContentAction))]
-    interface StructuredContentLinkAction
+  //  [BaseType(typeof(StructuredContentAction))]
+    interface StructuredContentLinkAction : StructuredContentAction
     {
         // @property (copy, nonatomic) NSString * _Nonnull uri __attribute__((diagnose_if(0x7fcad796d3e0, "Swift property 'StructuredContentLinkAction.uri' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
         [Export("uri")]
@@ -3184,14 +3235,17 @@ namespace ChatBinding
         [DesignatedInitializer]
         IntPtr Constructor(NSCoder aDecoder);
         */
+
+
         // -(void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
         [Export("encodeWithCoder:")]
         void EncodeWithCoder(NSCoder aCoder);
     }
 
     // @interface StructuredContentLinkPreviewItem : StructuredContentItem
-    [BaseType(typeof(StructuredContentItem))]
-    interface StructuredContentLinkPreviewItem
+   // [BaseType(typeof(StructuredContentItem))]
+  //  [Protocol]
+    interface StructuredContentLinkPreviewItem : StructuredContentItem
     {
         // @property (copy, nonatomic) NSString * _Nonnull url __attribute__((diagnose_if(0x7fcad796e1d8, "Swift property 'StructuredContentLinkPreviewItem.url' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
         [Export("url")]
@@ -3214,8 +3268,9 @@ namespace ChatBinding
     }
 
     // @interface StructuredContentMapItem : StructuredContentItem
-    [BaseType(typeof(StructuredContentItem))]
-    interface StructuredContentMapItem
+    //[BaseType(typeof(StructuredContentItem))]
+    //[Protocol]
+    interface StructuredContentMapItem : StructuredContentItem
     {
         // @property (nonatomic) int latitude __attribute__((diagnose_if(0x7fcad79765b8, "Swift property 'StructuredContentMapItem.latitude' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
         [Export("latitude")]
@@ -3242,8 +3297,8 @@ namespace ChatBinding
     }
 
     // @interface StructuredContentNavigateAction : StructuredContentAction
-    [BaseType(typeof(StructuredContentAction))]
-    interface StructuredContentNavigateAction
+    //[BaseType(typeof(StructuredContentAction))]
+    interface StructuredContentNavigateAction : StructuredContentAction
     {
         // @property (nonatomic) int latitude __attribute__((diagnose_if(0x7fcad7977818, "Swift property 'StructuredContentNavigateAction.latitude' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
         [Export("latitude")]
@@ -3266,8 +3321,8 @@ namespace ChatBinding
     }
 
     // @interface StructuredContentPublishTextAction : StructuredContentAction
-    [BaseType(typeof(StructuredContentAction))]
-    interface StructuredContentPublishTextAction
+    //[BaseType(typeof(StructuredContentAction))]
+    interface StructuredContentPublishTextAction : StructuredContentAction
     {
         // @property (copy, nonatomic) NSString * _Nonnull text __attribute__((diagnose_if(0x7fcad7978658, "Swift property 'StructuredContentPublishTextAction.text' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
         [Export("text")]
@@ -3288,6 +3343,7 @@ namespace ChatBinding
     // @interface StructuredContentStyle : NSObject <NSCoding>
     [BaseType(typeof(NSObject))]
     [DisableDefaultCtor]
+    [Protocol]
     interface StructuredContentStyle : INSCoding
     {
         // @property (nonatomic, strong) UIColor * _Nullable color __attribute__((diagnose_if(0x7fcad7978fd8, "Swift property 'StructuredContentStyle.color' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
@@ -3320,8 +3376,9 @@ namespace ChatBinding
     }
 
     // @interface StructuredContentTextItem : StructuredContentItem
-    [BaseType(typeof(StructuredContentItem))]
-    interface StructuredContentTextItem
+   // [BaseType(typeof(StructuredContentItem))]
+   // [Protocol]
+    interface StructuredContentTextItem : StructuredContentItem
     {
         // @property (copy, nonatomic) NSString * _Nullable text __attribute__((diagnose_if(0x7fcad797a498, "Swift property 'StructuredContentTextItem.text' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
         [NullAllowed, Export("text")]
@@ -3340,8 +3397,9 @@ namespace ChatBinding
     }
 
     // @interface StructuredContentWebviewItem : StructuredContentItem
-    [BaseType(typeof(StructuredContentItem))]
-    interface StructuredContentWebviewItem
+   // [BaseType(typeof(StructuredContentItem))]
+   // [Protocol]
+    interface StructuredContentWebviewItem : StructuredContentItem
     {
         // @property (copy, nonatomic) NSString * _Nonnull url __attribute__((diagnose_if(0x7fcad797ae40, "Swift property 'StructuredContentWebviewItem.url' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
         [Export("url")]
@@ -3361,6 +3419,7 @@ namespace ChatBinding
 
     // @interface SubscribeConversations : GeneralResponse
     [BaseType(typeof(GeneralResponse))]
+    [Protocol]
     interface SubscribeConversations
     {
         // -(instancetype _Nonnull)initWithJsonDict:(NSDictionary<NSString *,id> * _Nonnull)jsonDict __attribute__((objc_designated_initializer));
@@ -3372,6 +3431,7 @@ namespace ChatBinding
     // @interface TTRModel : NSObject <NSCoding>
     [BaseType(typeof(NSObject))]
     [DisableDefaultCtor]
+    [Protocol]
     interface TTRModel : INSCoding
     {
         // @property (copy, nonatomic) NSDate * _Null_unspecified effectiveTTR __attribute__((diagnose_if(0x7fcad797bc28, "Swift property 'TTRModel.effectiveTTR' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
@@ -3420,6 +3480,7 @@ namespace ChatBinding
 
     // @interface Toast : UIView
     [BaseType(typeof(UIView))]
+    [Protocol]
     interface Toast
     {
         // @property (copy, nonatomic) NSString * _Nullable name __attribute__((diagnose_if(0x7fcad797dec8, "Swift property 'Toast.name' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
@@ -3471,6 +3532,7 @@ namespace ChatBinding
 
     // @interface Toaster : UIView
     [BaseType(typeof(UIView))]
+    [Protocol]
     interface Toaster
     {
         // @property (readonly, nonatomic, strong) Toast * _Nullable current __attribute__((diagnose_if(0x7fcad7980028, "Swift property 'Toaster.current' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
@@ -3516,6 +3578,7 @@ namespace ChatBinding
 
     // @interface Utils : NSObject
     [BaseType(typeof(NSObject))]
+    [Protocol]
     interface Utils
     {
         // @property (readonly, nonatomic, strong, class) dispatch_queue_t _Nonnull backgroundQueue;
@@ -3606,6 +3669,7 @@ namespace ChatBinding
     // @interface ConnectionStateManager : NSObject <GeneralManagerProtocol>
     [BaseType(typeof(NSObject))]
     [DisableDefaultCtor]
+    [Protocol]
     interface ConnectionStateManager : GeneralManagerProtocol
     {
         // @property (readonly, nonatomic, strong, class) ConnectionStateManager * _Nonnull instance __attribute__((diagnose_if(0x7fcad798da78, "Swift property 'ConnectionStateManager.instance' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
@@ -3625,6 +3689,7 @@ namespace ChatBinding
 
     // @interface EngagementHistoryManager : NSObject
     [BaseType(typeof(NSObject))]
+    [Protocol]
     interface EngagementHistoryManager
     {
         // +(void)getConsumerMessagesForConversationWithRequest:(EngagementHistoryRequest * _Nonnull)request completion:(void (^ _Nonnull)(NSArray<LPMessageEntity *> * _Nonnull))completion failure:(void (^ _Nonnull)(NSError * _Nonnull))failure __attribute__((diagnose_if(0x7fcad798ecf8, "Swift method 'EngagementHistoryManager.getConsumerMessagesForConversation(request:completion:failure:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
@@ -3641,6 +3706,7 @@ namespace ChatBinding
     // @interface LPAMSFacade : NSObject
     [BaseType(typeof(NSObject))]
     [DisableDefaultCtor]
+    [Protocol]
     interface LPAMSFacade 
     {
         // +(instancetype _Nonnull)new __attribute__((deprecated("-init is unavailable")));
@@ -4059,6 +4125,7 @@ namespace ChatBinding
     // @interface LPMessagingAPI : NSObject
     [BaseType(typeof(NSObject))]
     [DisableDefaultCtor]
+    [Protocol]
     interface LPMessagingAPI 
     {
         // +(instancetype _Nonnull)new __attribute__((deprecated("-init is unavailable")));
@@ -4517,6 +4584,7 @@ namespace ChatBinding
     // @interface LPMessagingSDK : NSObject <UINavigationControllerDelegate>
     [BaseType(typeof(NSObject))]
     [DisableDefaultCtor]
+    [Protocol]
     interface LPMessagingSDK : IUINavigationControllerDelegate
     {
         [Wrap("WeakDelegate")]
@@ -4804,6 +4872,7 @@ namespace ChatBinding
     // @interface LPNotification : NSObject
     [BaseType(typeof(NSObject))]
     [DisableDefaultCtor]
+    [Protocol]
     interface LPNotification
     {
         // @property (copy, nonatomic) NSString * _Nonnull text;
@@ -4847,6 +4916,7 @@ namespace ChatBinding
 
     // @interface LPRadialProgressBar : UIView
     [BaseType(typeof(UIView))]
+    [Protocol]
     interface LPRadialProgressBar
     {
         /*
@@ -4859,6 +4929,7 @@ namespace ChatBinding
 
     // @interface NSBouncyView : UIView
     [BaseType(typeof(UIView))]
+    [Protocol]
     interface NSBouncyView
     {
         // -(void)setView:(UIView * _Nonnull)view __attribute__((diagnose_if(0x7fcad73da810, "Swift method 'NSBouncyView.setView(_:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
@@ -4888,6 +4959,7 @@ namespace ChatBinding
 
     // @interface RemoteUserIsTypingView : UIView
     [BaseType(typeof(UIView))]
+    [Protocol]
     interface RemoteUserIsTypingView
     {
         // -(instancetype _Nonnull)initWithFrame:(CGRect)frame __attribute__((objc_designated_initializer));
@@ -4955,6 +5027,7 @@ namespace ChatBinding
 
     // @interface LPEngagementDetails : NSObject
     [BaseType(typeof(NSObject))]
+    [Protocol]
     interface LPEngagementDetails
     {
         // @property (nonatomic) NSInteger campaignId;
@@ -4984,6 +5057,7 @@ namespace ChatBinding
 
     // @interface LPGetEngagementResponse : NSObject
     [BaseType(typeof(NSObject))]
+    [Protocol]
     interface LPGetEngagementResponse
     {
         // @property (copy, nonatomic) NSArray<LPEngagementDetails *> * _Nullable engagementDetails;
@@ -5010,6 +5084,7 @@ namespace ChatBinding
     // @interface LPMonitoringAPI : NSObject
     [BaseType(typeof(NSObject))]
     [DisableDefaultCtor]
+    [Protocol]
     interface LPMonitoringAPI
     {
         // @property (readonly, nonatomic, strong, class) LPMonitoringAPI * _Nonnull instance;
@@ -5034,6 +5109,7 @@ namespace ChatBinding
     // @interface LPMonitoringDataManager : NSObject <GeneralManagerProtocol>
     [BaseType(typeof(NSObject))]
     [DisableDefaultCtor]
+    [Protocol]
     interface LPMonitoringDataManager : GeneralManagerProtocol
     {
         // @property (readonly, nonatomic) BOOL isInitialized __attribute__((diagnose_if(0x7fcad73f2230, "Swift property 'LPMonitoringDataManager.isInitialized' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
@@ -5062,6 +5138,7 @@ namespace ChatBinding
     // @interface LPMonitoringInitParams : NSObject
     [BaseType(typeof(NSObject))]
     [DisableDefaultCtor]
+    [Protocol]
     interface LPMonitoringInitParams
     {
         // -(instancetype _Nonnull)initWithAppInstallID:(NSString * _Nonnull)appInstallID __attribute__((objc_designated_initializer));
@@ -5080,7 +5157,7 @@ namespace ChatBinding
     }
 
     // @interface LPMonitoringParams : NSObject
-    [BaseType(typeof(NSObject))]
+    [BaseType(typeof(NSObject), Name ="_TtC12LPMonitoring18LPMonitoringParams")]
     [DisableDefaultCtor]
     interface LPMonitoringParams
     {
@@ -5113,6 +5190,7 @@ namespace ChatBinding
 
     // @interface LPSendSDEResponse : NSObject
     [BaseType(typeof(NSObject))]
+    [Protocol]
     interface LPSendSDEResponse
     {
         // @property (copy, nonatomic) NSString * _Nullable sessionId;
@@ -5132,15 +5210,5 @@ namespace ChatBinding
         string Description { get; }
     }
 
-    // @interface LivePersonChat : NSObject
-    [BaseType(typeof(NSObject))]
-    interface LivePersonChat
-    {
-    }
-
-    // @interface LivePersonMonitoring : NSObject
-    [BaseType(typeof(NSObject))]
-    interface LivePersonMonitoring
-    {
-    }
+   
 }

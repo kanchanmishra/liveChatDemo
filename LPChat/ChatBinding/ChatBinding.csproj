@@ -34,10 +34,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="LPChatMessaging.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
   </ItemGroup>
   <ItemGroup>
     <ObjcBindingCoreSource Include="Structs.cs" />
@@ -46,11 +42,32 @@
     <BundleResource Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="New Folder\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
+  </ItemGroup>
+  <ItemGroup>
     <NativeReference Include="libLivepersonChatFinal.a">
       <Kind>Static</Kind>
       <ForceLoad>True</ForceLoad>
-      <LinkerFlags>-ObjC, -lz</LinkerFlags>
-      <Frameworks>UIKit, Foundation, QuickLook, Intents, CoreGraphics, CoreData, QuartzCore, CloudKit</Frameworks>
+      <Frameworks>QuickLook, Intents, CoreGraphics, CoreData, QuartzCore, CloudKit, WebKit, UIKit, Foundation</Frameworks>
+    </NativeReference>
+    <NativeReference Include="..\Libraries\LPAMS.framework">
+      <Kind>Framework</Kind>
+      <SmartLink>False</SmartLink>
+    </NativeReference>
+    <NativeReference Include="..\Libraries\LPInfra.framework">
+      <Kind>Framework</Kind>
+      <SmartLink>False</SmartLink>
+    </NativeReference>
+    <NativeReference Include="..\Libraries\LPMessagingSDK.framework">
+      <Kind>Framework</Kind>
+      <SmartLink>False</SmartLink>
+    </NativeReference>
+    <NativeReference Include="..\Libraries\LPMonitoring.framework">
+      <Kind>Framework</Kind>
+      <SmartLink>False</SmartLink>
     </NativeReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
