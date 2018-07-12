@@ -2998,12 +2998,12 @@ namespace ChatBinding
         [Export("initWithCoder:")]
         [DesignatedInitializer]
         IntPtr Constructor(NSCoder aDecoder);
-        */
+       
 
         // -(void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
         [Export("encodeWithCoder:")]
         void EncodeWithCoder(NSCoder aCoder);
-
+        */
         // +(instancetype _Nonnull)new __attribute__((deprecated("-init is unavailable")));
         [Static]
         [Export("new")]
@@ -3051,13 +3051,13 @@ namespace ChatBinding
         [Export("initWithCoder:")]
         [DesignatedInitializer]
         IntPtr Constructor(NSCoder aDecoder);
-        */
+       
 
         // -(void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
         [Export("encodeWithCoder:")]
         void EncodeWithCoder(NSCoder aCoder);
 
-       
+        */
         // +(instancetype _Nonnull)new __attribute__((deprecated("-init is unavailable")));
         [Static]
         [Export("new")]
@@ -3187,11 +3187,12 @@ namespace ChatBinding
         [Export("initWithCoder:")]
         [DesignatedInitializer]
         IntPtr Constructor(NSCoder aDecoder);
-        */
+
         // -(void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
         [Export("encodeWithCoder:")]
         void EncodeWithCoder(NSCoder aCoder);
 
+        */
         // +(instancetype _Nonnull)new __attribute__((deprecated("-init is unavailable")));
         [Static]
         [Export("new")]
@@ -3363,12 +3364,13 @@ namespace ChatBinding
         [Export("initWithCoder:")]
         [DesignatedInitializer]
         IntPtr Constructor(NSCoder aDecoder);
-        */
+
 
         // -(void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
         [Export("encodeWithCoder:")]
         void EncodeWithCoder(NSCoder aCoder);
 
+        */
         // +(instancetype _Nonnull)new __attribute__((deprecated("-init is unavailable")));
         [Static]
         [Export("new")]
@@ -3458,11 +3460,11 @@ namespace ChatBinding
         // @property (readonly, copy, nonatomic) NSString * _Nonnull description;
         [Export("description")]
         string Description { get; }
-
+        /*
         // -(void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
         [Export("encodeWithCoder:")]
         void EncodeWithCoder(NSCoder aCoder);
-        /*
+       
         // -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)aDecoder __attribute__((objc_designated_initializer));
         [Export("initWithCoder:")]
         [DesignatedInitializer]

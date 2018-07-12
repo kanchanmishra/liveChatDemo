@@ -1,27 +1,16 @@
 ﻿<Properties StartupConfiguration="{6AB5846D-6A50-4499-8839-7FA3106E4B36}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="LivePersonChat/Info.plist">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ChatBinding/ApiDefinition.cs">
     <Files>
       <File FileName="LivePersonChat/Main.cs" Line="16" Column="1" />
       <File FileName="LivePersonChat/Info.plist" />
+      <File FileName="ChatBinding/obj/Debug/ios/ChatBinding/StructuredContentAction.g.cs" Line="124" Column="36" />
+      <File FileName="ChatBinding/ApiDefinition.cs" Line="3374" Column="9" />
+      <File FileName="ChatBinding/obj/Debug/ios/ChatBinding/StructuredContentItemContainer.g.cs" Line="120" Column="43" />
+      <File FileName="ChatBinding/obj/Debug/ios/ChatBinding/StructuredContentStyle.g.cs" Line="45" Column="43" />
+      <File FileName="ChatBinding/obj/Debug/ios/ChatBinding/TTRModel.g.cs" Line="45" Column="29" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="LPChat" expanded="True">
-            <Node name="ChatBinding" expanded="True" />
-            <Node name="LivePersonChat" expanded="True">
-              <Node name="References" expanded="True" />
-              <Node name="Info.plist" selected="True" />
-            </Node>
-            <Node name="LPChat" expanded="True">
-              <Node name="References" expanded="True" />
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/mishk/Projects/liveChatGit/liveChatDemo/LPChat/ChatBinding/obj/Debug/ios/LivePersonChat/LPAMSFacadeDelegate.g.cs" relfile="ChatBinding/obj/Debug/ios/LivePersonChat/LPAMSFacadeDelegate.g.cs" line="46" column="221" />
@@ -35,6 +24,6 @@
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.LivePersonChat PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.C14E32C8-EDD2-4D58-BA0C-C8C98D841DB3" automaticSigning="False" />
+  <MonoDevelop.Ide.ItemProperties.LivePersonChat PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.f10c0098def85ad2d591f57001f718f28aa8ce3d" automaticSigning="False" />
   <MultiItemStartupConfigurations />
 </Properties>
