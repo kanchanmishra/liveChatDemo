@@ -19,6 +19,15 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <CustomCommands>
+      <CustomCommands>
+        <Command>
+          <type>Custom</type>
+          <command>bash "${ProjectDir}/Libraries/LPInfra.framework/frameworks-strip.sh"</command>
+          <externalConsole>True</externalConsole>
+        </Command>
+      </CustomCommands>
+    </CustomCommands>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <Optimize>true</Optimize>
@@ -48,25 +57,24 @@
     <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
   </ItemGroup>
   <ItemGroup>
+    <NativeReference Include="..\..\..\iOS-Messaging-SDK-master-3\Libraries\LPMonitoring.framework">
+      <Kind>Framework</Kind>
+      <SmartLink>False</SmartLink>
+    </NativeReference>
+    <NativeReference Include="..\..\..\iOS-Messaging-SDK-master-3\Libraries\LPMessagingSDK.framework">
+      <Kind>Framework</Kind>
+      <SmartLink>False</SmartLink>
+    </NativeReference>
+    <NativeReference Include="..\..\..\iOS-Messaging-SDK-master-3\Libraries\LPInfra.framework">
+      <Kind>Framework</Kind>
+      <SmartLink>False</SmartLink>
+    </NativeReference>
+    <NativeReference Include="..\..\..\iOS-Messaging-SDK-master-3\Libraries\LPAMS.framework">
+      <Kind>Framework</Kind>
+      <SmartLink>False</SmartLink>
+    </NativeReference>
     <NativeReference Include="libLivepersonChatFinal.a">
       <Kind>Static</Kind>
-      <ForceLoad>True</ForceLoad>
-      <Frameworks>QuickLook, Intents, CoreGraphics, CoreData, QuartzCore, CloudKit, WebKit, UIKit, Foundation</Frameworks>
-    </NativeReference>
-    <NativeReference Include="..\Libraries\LPAMS.framework">
-      <Kind>Framework</Kind>
-      <SmartLink>False</SmartLink>
-    </NativeReference>
-    <NativeReference Include="..\Libraries\LPInfra.framework">
-      <Kind>Framework</Kind>
-      <SmartLink>False</SmartLink>
-    </NativeReference>
-    <NativeReference Include="..\Libraries\LPMessagingSDK.framework">
-      <Kind>Framework</Kind>
-      <SmartLink>False</SmartLink>
-    </NativeReference>
-    <NativeReference Include="..\Libraries\LPMonitoring.framework">
-      <Kind>Framework</Kind>
       <SmartLink>False</SmartLink>
     </NativeReference>
   </ItemGroup>

@@ -2998,12 +2998,12 @@ namespace ChatBinding
         [Export("initWithCoder:")]
         [DesignatedInitializer]
         IntPtr Constructor(NSCoder aDecoder);
-       
+        */
 
         // -(void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
-        [Export("encodeWithCoder:")]
-        void EncodeWithCoder(NSCoder aCoder);
-        */
+        //[Export("encodeWithCoder:")]
+        //void EncodeWithCoder(NSCoder aCoder);
+
         // +(instancetype _Nonnull)new __attribute__((deprecated("-init is unavailable")));
         [Static]
         [Export("new")]
@@ -3051,13 +3051,13 @@ namespace ChatBinding
         [Export("initWithCoder:")]
         [DesignatedInitializer]
         IntPtr Constructor(NSCoder aDecoder);
-       
+        */
 
         // -(void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
-        [Export("encodeWithCoder:")]
-        void EncodeWithCoder(NSCoder aCoder);
+        //[Export("encodeWithCoder:")]
+        //void EncodeWithCoder(NSCoder aCoder);
 
-        */
+       
         // +(instancetype _Nonnull)new __attribute__((deprecated("-init is unavailable")));
         [Static]
         [Export("new")]
@@ -3187,12 +3187,11 @@ namespace ChatBinding
         [Export("initWithCoder:")]
         [DesignatedInitializer]
         IntPtr Constructor(NSCoder aDecoder);
-
-        // -(void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
-        [Export("encodeWithCoder:")]
-        void EncodeWithCoder(NSCoder aCoder);
-
         */
+        // -(void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
+        //[Export("encodeWithCoder:")]
+        //void EncodeWithCoder(NSCoder aCoder);
+
         // +(instancetype _Nonnull)new __attribute__((deprecated("-init is unavailable")));
         [Static]
         [Export("new")]
@@ -3364,13 +3363,12 @@ namespace ChatBinding
         [Export("initWithCoder:")]
         [DesignatedInitializer]
         IntPtr Constructor(NSCoder aDecoder);
-
+        */
 
         // -(void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
-        [Export("encodeWithCoder:")]
-        void EncodeWithCoder(NSCoder aCoder);
+        //[Export("encodeWithCoder:")]
+        //void EncodeWithCoder(NSCoder aCoder);
 
-        */
         // +(instancetype _Nonnull)new __attribute__((deprecated("-init is unavailable")));
         [Static]
         [Export("new")]
@@ -3460,11 +3458,11 @@ namespace ChatBinding
         // @property (readonly, copy, nonatomic) NSString * _Nonnull description;
         [Export("description")]
         string Description { get; }
-        /*
+
         // -(void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
-        [Export("encodeWithCoder:")]
-        void EncodeWithCoder(NSCoder aCoder);
-       
+        //[Export("encodeWithCoder:")]
+        //void EncodeWithCoder(NSCoder aCoder);
+        /*
         // -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)aDecoder __attribute__((objc_designated_initializer));
         [Export("initWithCoder:")]
         [DesignatedInitializer]
@@ -4589,6 +4587,11 @@ namespace ChatBinding
     [Protocol]
     interface LPMessagingSDK : IUINavigationControllerDelegate
     {
+         
+        [Export("init:")]
+        IntPtr Constructor();
+
+
         [Wrap("WeakDelegate")]
         [NullAllowed]
         LPMessagingSDKdelegate Delegate { get; set; }
@@ -4613,7 +4616,7 @@ namespace ChatBinding
         // @property (readonly, nonatomic, strong, class) LPMessagingSDK * _Nonnull instance;
         [Static]
         [Export("instance", ArgumentSemantic.Strong)]
-        LPMessagingSDK Instance { get; }
+        LPMessagingSDK Instance { get; set; }
 
         // -(BOOL)initialize:(NSString * _Nullable)brandID monitoringInitParams:(LPMonitoringInitParams * _Nullable)monitoringInitParams error:(NSError * _Nullable * _Nullable)error;
         [Export("initialize:monitoringInitParams:error:")]

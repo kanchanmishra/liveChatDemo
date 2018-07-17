@@ -5,7 +5,7 @@
 	<key>CFBundleName</key>
 	<string>LivePersonChat</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.Bupa.LivePersonChat</string>
+	<string>com.datamatics.mobileappmessage</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
@@ -13,7 +13,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MinimumOSVersion</key>
-	<string>11.2</string>
+	<string>11.0</string>
 	<key>UIDeviceFamily</key>
 	<array>
 		<integer>1</integer>

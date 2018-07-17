@@ -17,7 +17,7 @@
     <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignKey>iPhone Distribution: Datamatics Global Services Limited (EQT5H9WMWC)</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
     <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
     <MtouchFastDev>true</MtouchFastDev>
@@ -27,7 +27,8 @@
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <DeviceSpecificBuild>false</DeviceSpecificBuild>
     <MtouchVerbosity></MtouchVerbosity>
-    <MtouchSdkVersion>11.3</MtouchSdkVersion>
+    <MtouchSdkVersion>11.4</MtouchSdkVersion>
+    <MtouchExtraArgs> </MtouchExtraArgs>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>pdbonly</DebugType>
@@ -53,11 +54,10 @@
     <WarningLevel>4</WarningLevel>
     <CodesignKey>iPhone Developer</CodesignKey>
     <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
-    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchLink>None</MtouchLink>
     <MtouchArch>x86_64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchVerbosity></MtouchVerbosity>
-    <MtouchSdkVersion>11.3</MtouchSdkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
     <DebugSymbols>true</DebugSymbols>
@@ -67,31 +67,98 @@
     <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodesignKey>iPhone Developer: sajida deshmukh (W23S262YE2)</CodesignKey>
+    <CodesignKey>iPhone Developer</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
     <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
     <MtouchFloat32>true</MtouchFloat32>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <IOSDebuggerPort>60488</IOSDebuggerPort>
-    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchLink>None</MtouchLink>
     <MtouchArch>ARM64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchVerbosity></MtouchVerbosity>
-    <CodesignProvision>All</CodesignProvision>
-    <MtouchSdkVersion>11.3</MtouchSdkVersion>
+    <CustomCommands>
+      <CustomCommands>
+        <Command>
+          <type>Custom</type>
+          <command>bash ${BUILT_PRODUCTS_DIR}/Libraries/LPInfra.framework/frameworks-strip.sh</command>
+          <workingdir>/bin/shell</workingdir>
+        </Command>
+      </CustomCommands>
+    </CustomCommands>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
+    <Reference Include="Xamarin.Swift4">
+      <HintPath>..\packages\Xamarin.Swift4.4.0.0.0\lib\xamarinios10\Xamarin.Swift4.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Swift4.Metal">
+      <HintPath>..\packages\Xamarin.Swift4.Metal.4.1.2\lib\xamarinios10\Xamarin.Swift4.Metal.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Swift4.Core">
+      <HintPath>..\packages\Xamarin.Swift4.Core.4.1.2\lib\xamarinios10\Xamarin.Swift4.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Swift4.Foundation">
+      <HintPath>..\packages\Xamarin.Swift4.Foundation.4.1.2\lib\xamarinios10\Xamarin.Swift4.Foundation.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Swift4.CoreFoundation">
+      <HintPath>..\packages\Xamarin.Swift4.CoreFoundation.4.1.2\lib\xamarinios10\Xamarin.Swift4.CoreFoundation.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Swift4.CoreGraphics">
+      <HintPath>..\packages\Xamarin.Swift4.CoreGraphics.4.1.2\lib\xamarinios10\Xamarin.Swift4.CoreGraphics.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Swift4.CoreImage">
+      <HintPath>..\packages\Xamarin.Swift4.CoreImage.4.1.2\lib\xamarinios10\Xamarin.Swift4.CoreImage.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Swift4.Darwin">
+      <HintPath>..\packages\Xamarin.Swift4.Darwin.4.1.2\lib\xamarinios10\Xamarin.Swift4.Darwin.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Swift4.ObjectiveC">
+      <HintPath>..\packages\Xamarin.Swift4.ObjectiveC.4.1.2\lib\xamarinios10\Xamarin.Swift4.ObjectiveC.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Swift4.UIKit">
+      <HintPath>..\packages\Xamarin.Swift4.UIKit.4.1.2\lib\xamarinios10\Xamarin.Swift4.UIKit.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Swift4.CoreAudio">
+      <HintPath>..\packages\Xamarin.Swift4.CoreAudio.4.1.2\lib\xamarinios10\Xamarin.Swift4.CoreAudio.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Swift4.CoreData">
+      <HintPath>..\packages\Xamarin.Swift4.CoreData.4.1.2\lib\xamarinios10\Xamarin.Swift4.CoreData.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Swift4.AVFoundation">
+      <HintPath>..\packages\Xamarin.Swift4.AVFoundation.4.1.2\lib\xamarinios10\Xamarin.Swift4.AVFoundation.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Swift4.CoreLocation">
+      <HintPath>..\packages\Xamarin.Swift4.CoreLocation.4.1.2\lib\xamarinios10\Xamarin.Swift4.CoreLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Swift4.CoreMedia">
+      <HintPath>..\packages\Xamarin.Swift4.CoreMedia.4.1.2\lib\xamarinios10\Xamarin.Swift4.CoreMedia.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Swift4.Dispatch">
+      <HintPath>..\packages\Xamarin.Swift4.Dispatch.4.1.2\lib\xamarinios10\Xamarin.Swift4.Dispatch.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Swift4.MapKit">
+      <HintPath>..\packages\Xamarin.Swift4.MapKit.4.1.2\lib\xamarinios10\Xamarin.Swift4.MapKit.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Swift4.SIMD">
+      <HintPath>..\packages\Xamarin.Swift4.SIMD.4.1.2\lib\xamarinios10\Xamarin.Swift4.SIMD.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Swift4.Photos">
+      <HintPath>..\packages\Xamarin.Swift4.Photos.4.1.2\lib\xamarinios10\Xamarin.Swift4.Photos.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Swift4.QuartzCore">
+      <HintPath>..\packages\Xamarin.Swift4.QuartzCore.4.1.2\lib\xamarinios10\Xamarin.Swift4.QuartzCore.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Swift4.OS">
+      <HintPath>..\packages\Xamarin.Swift4.OS.4.1.2\lib\xamarinios10\Xamarin.Swift4.OS.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\Contents.json" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -100,6 +167,7 @@
   <ItemGroup>
     <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
@@ -116,4 +184,5 @@
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <Import Project="..\packages\Xamarin.Swift4.4.0.0.0\build\Xamarin.Swift4.targets" Condition="Exists('..\packages\Xamarin.Swift4.4.0.0.0\build\Xamarin.Swift4.targets')" />
 </Project>
