@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace LivePersonChat
+namespace ChatBinding
 {
     public enum CheckmarksState
     {
