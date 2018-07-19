@@ -19,20 +19,21 @@ using Foundation;
             LPConversationViewParams viewParams;
             // Perform any additional setup after loading the view, typically from a nib.
             NSError error = null;
-            ChatBinding.ILPMessagingSDK lPMessagingSDK = new  LPMessagingSDK ();
-            LPMessagingSDK.Instance.Initialize("33136087", LPMonitoringInitParams.New(), out error);
-            btnInit.TouchUpInside += (o, s) => {
-                //   LPMessagingSDK.Instance.Initialize("33136087", null, out error);
-            
-             //   LPMessagingSDK.Instance.Initialize("33136087", LPMonitoringInitParams.New(), out error);
-              
+            bool isinitlizes =  new LPMessagingSDK().Initialize("33136087", null, out error);// new  LPMessagingSDK ();
+            if(error != null)
+            {
+                Console.WriteLine(error.LocalizedDescription);
+            } 
+            else 
+            {
+                Console.WriteLine("Successfull initlizes");
+            }
 
-              
-
+            btnInit.TouchUpInside += (o, s) => 
+            {
                 var conversationQuery = LPMessagingSDK.Instance.GetConversationBrandQuery("33136087", null);
                 viewParams = new LPConversationViewParams(conversationQuery, this, false, null);
                 LPMessagingSDK.Instance.ShowConversation(viewParams, null);
-
             };
 
         }

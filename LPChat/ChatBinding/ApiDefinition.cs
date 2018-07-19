@@ -3505,7 +3505,7 @@ namespace ChatBinding
 
         // -(void)awakeFromNib __attribute__((objc_requires_super));
         [Export("awakeFromNib")]
-        [RequiresSuper]
+      
         void AwakeFromNib();
 
         // -(void)changeTextWithText:(NSString * _Nonnull)text __attribute__((diagnose_if(0x7fcad797ef68, "Swift method 'Toast.changeText(text:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint", "warning")));
@@ -4609,9 +4609,9 @@ namespace ChatBinding
         NSObject WeakNotificationDelegate { get; set; }
 
         // +(instancetype _Nonnull)new __attribute__((deprecated("-init is unavailable")));
-        [Static]
-        [Export("new")]
-        LPMessagingSDK New();
+        //[Static]
+        //[Export("init:")]
+        //LPMessagingSDK New();
 
         // @property (readonly, nonatomic, strong, class) LPMessagingSDK * _Nonnull instance;
         [Static]
@@ -4980,7 +4980,6 @@ namespace ChatBinding
         */
         // -(void)awakeFromNib __attribute__((objc_requires_super));
         [Export("awakeFromNib")]
-        [RequiresSuper]
         void AwakeFromNib();
     }
 

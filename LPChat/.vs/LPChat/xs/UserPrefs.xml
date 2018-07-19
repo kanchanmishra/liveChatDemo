@@ -1,29 +1,16 @@
 ﻿<Properties StartupConfiguration="{6AB5846D-6A50-4499-8839-7FA3106E4B36}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="ChatBinding/ApiDefinition.cs">
-    <Files>
-      <File FileName="LivePersonChat/Main.cs" Line="16" Column="1" />
-      <File FileName="LivePersonChat/Info.plist" />
-      <File FileName="ChatBinding/obj/Debug/ios/ChatBinding/StructuredContentAction.g.cs" Line="124" Column="36" />
-      <File FileName="ChatBinding/ApiDefinition.cs" Line="3374" Column="9" />
-      <File FileName="ChatBinding/obj/Debug/ios/ChatBinding/StructuredContentItemContainer.g.cs" Line="120" Column="43" />
-      <File FileName="ChatBinding/obj/Debug/ios/ChatBinding/StructuredContentStyle.g.cs" Line="45" Column="43" />
-      <File FileName="ChatBinding/obj/Debug/ios/ChatBinding/TTRModel.g.cs" Line="45" Column="29" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" />
+  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/mishk/Projects/liveChatGit/liveChatDemo/LPChat/ChatBinding/obj/Debug/ios/LivePersonChat/LPAMSFacadeDelegate.g.cs" relfile="ChatBinding/obj/Debug/ios/LivePersonChat/LPAMSFacadeDelegate.g.cs" line="46" column="221" />
-      <Breakpoint file="/Users/mishk/Projects/liveChatGit/liveChatDemo/LPChat/LPChat/ViewController.cs" relfile="LPChat/ViewController.cs" line="24" column="1" />
-      <Breakpoint file="/Users/mishk/Projects/liveChatGit/liveChatDemo/LPChat/LPChat/ViewController.cs" relfile="LPChat/ViewController.cs" line="27" column="1" />
-      <Breakpoint file="/Users/mishk/Projects/liveChatGit/liveChatDemo/LPChat/LPChat/ViewController.cs" relfile="LPChat/ViewController.cs" line="21" column="1" />
-      <Breakpoint file="/Users/mishk/Projects/liveChatGit/liveChatDemo/LPChat/LivePersonChat/ViewController.cs" relfile="LivePersonChat/ViewController.cs" line="20" column="1" />
-      <Breakpoint file="/Users/mishk/Projects/liveChatGit/liveChatDemo/LPChat/LivePersonChat/AppDelegate.cs" relfile="LivePersonChat/AppDelegate.cs" line="26" column="1" />
-      <Breakpoint file="/Users/mishk/Projects/liveChatGit/liveChatDemo/LPChat/LivePersonChat/Main.cs" relfile="LivePersonChat/Main.cs" line="12" column="1" />
-      <Breakpoint file="/Users/mishk/Projects/liveChatGit/liveChatDemo/LPChat/LivePersonChat/Main.cs" relfile="LivePersonChat/Main.cs" line="9" column="1" />
+      <Breakpoint file="/Users/sravan/Documents/Pojects/Git-Livemessaging/LPChat/ChatBinding/obj/Debug/ios/LivePersonChat/LPAMSFacadeDelegate.g.cs" relfile="ChatBinding/obj/Debug/ios/LivePersonChat/LPAMSFacadeDelegate.g.cs" line="46" column="221" />
+      <Breakpoint file="/Users/sravan/Documents/Pojects/Git-Livemessaging/LPChat/LPChat/ViewController.cs" relfile="LPChat/ViewController.cs" line="24" column="1" />
+      <Breakpoint file="/Users/sravan/Documents/Pojects/Git-Livemessaging/LPChat/LPChat/ViewController.cs" relfile="LPChat/ViewController.cs" line="27" column="1" />
+      <Breakpoint file="/Users/sravan/Documents/Pojects/Git-Livemessaging/LPChat/LPChat/ViewController.cs" relfile="LPChat/ViewController.cs" line="21" column="1" />
+      <Breakpoint file="/Users/sravan/Documents/Pojects/Git-Livemessaging/LPChat/ChatBinding/obj/Debug/ios/ChatBinding/LPMessagingSDK.g.cs" relfile="ChatBinding/obj/Debug/ios/ChatBinding/LPMessagingSDK.g.cs" line="961" column="4" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.LivePersonChat PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.f10c0098def85ad2d591f57001f718f28aa8ce3d" automaticSigning="False" />
+  <MonoDevelop.Ide.ItemProperties.LivePersonChat PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.E46D6A95-EBE3-40D5-9660-63E1BABB2574" automaticSigning="False" />
   <MultiItemStartupConfigurations />
 </Properties>
